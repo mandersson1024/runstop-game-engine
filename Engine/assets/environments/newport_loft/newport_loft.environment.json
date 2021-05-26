@@ -1,0 +1,5 @@
+{
+  "skybox": "environments/newport_loft/skybox.hdr",
+  "irradiance_map": "environments/newport_loft/irradiance.hdr",
+  "radiance_map": "environments/newport_loft/radiance.hdr"
+}

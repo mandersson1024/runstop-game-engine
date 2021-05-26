@@ -1,0 +1,5 @@
+{
+  "skybox": "environments/factory_catwalk/skybox.hdr",
+  "irradiance_map": "environments/factory_catwalk/irradiance.hdr",
+  "radiance_map": "environments/factory_catwalk/radiance.dds"
+}

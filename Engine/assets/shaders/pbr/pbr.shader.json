@@ -1,0 +1,5 @@
+{
+  "pixel_source": "shaders/pbr/pbr_ps.hlsl",
+  "vertex_source": "shaders/pbr/pbr_vs.hlsl",
+  "vertex_type": "default"
+}

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Gui">
+      <UniqueIdentifier>{017D2FA9-6D5C-AE44-7674-391BE2D214A6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Layers">
+      <UniqueIdentifier>{4C4DA51D-3805-E76A-A10C-C0C68DE3815B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="third_party">
+      <UniqueIdentifier>{0FB18DF1-7B66-06E7-045B-00BE700FFDEA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="third_party\ImGui">
+      <UniqueIdentifier>{79750021-E58B-FEB6-2E03-8AD89A58CF3E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\EditorApplication.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EditorCameraController.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gui\ProjectGui.h">
+      <Filter>src\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gui\SceneGui.h">
+      <Filter>src\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gui\ToolsGui.h">
+      <Filter>src\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Layers\EditorSceneLayer.h">
+      <Filter>src\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Layers\GizmoLayer.h">
+      <Filter>src\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Layers\ImGuiLayer.h">
+      <Filter>src\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\ImGui\imconfig.h">
+      <Filter>third_party\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\ImGui\imgui.h">
+      <Filter>third_party\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\ImGui\imgui_impl_dx11.h">
+      <Filter>third_party\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\ImGui\imgui_impl_win32.h">
+      <Filter>third_party\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\ImGui\imgui_internal.h">
+      <Filter>third_party\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\ImGui\imstb_rectpack.h">
+      <Filter>third_party\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\ImGui\imstb_textedit.h">
+      <Filter>third_party\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\ImGui\imstb_truetype.h">
+      <Filter>third_party\ImGui</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\EditorApplication.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EditorCameraController.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gui\ProjectGui.cpp">
+      <Filter>src\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gui\SceneGui.cpp">
+      <Filter>src\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gui\ToolsGui.cpp">
+      <Filter>src\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Layers\EditorSceneLayer.cpp">
+      <Filter>src\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Layers\GizmoLayer.cpp">
+      <Filter>src\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Layers\ImGuiLayer.cpp">
+      <Filter>src\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\ImGui\imgui.cpp">
+      <Filter>third_party\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\ImGui\imgui_demo.cpp">
+      <Filter>third_party\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\ImGui\imgui_draw.cpp">
+      <Filter>third_party\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\ImGui\imgui_impl_dx11.cpp">
+      <Filter>third_party\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\ImGui\imgui_impl_win32.cpp">
+      <Filter>third_party\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\ImGui\imgui_widgets.cpp">
+      <Filter>third_party\ImGui</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

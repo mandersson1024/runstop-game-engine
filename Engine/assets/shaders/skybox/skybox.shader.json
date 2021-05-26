@@ -1,0 +1,5 @@
+{
+  "pixel_source": "shaders/skybox/skybox_ps.hlsl",
+  "vertex_source": "shaders/skybox/skybox_vs.hlsl",
+  "vertex_type": "minimal"
+}

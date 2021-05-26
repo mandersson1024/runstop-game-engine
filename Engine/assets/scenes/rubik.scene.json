@@ -1,0 +1,1780 @@
+{
+  "directional_light": {
+    "name": "directional_light",
+    "position": [
+      -1.2799999713897705,
+      3.9149999618530273,
+      -4.139999866485596
+    ],
+    "orientation": [
+      42.99399948120117,
+      45.04600143432617,
+      0.0
+    ],
+    "camera": {
+      "type": "perspective",
+      "fov": 57.000003814697266,
+      "near_clipping_plane": 0.10000000149011612,
+      "far_clipping_plane": 21.600000381469727,
+      "ortho_view_width": 12.5,
+      "ortho_view_height": 14.0
+    },
+    "light_source": {
+      "color": [
+        50.0,
+        50.0,
+        42.400001525878906
+      ]
+    }
+  },
+  "transforms": [
+    {
+      "name": "main_camera",
+      "position": [
+        0.0,
+        0.0,
+        -10.0
+      ],
+      "orientation": [
+        1.868296270419625e-17,
+        0.0,
+        0.0
+      ],
+      "camera": {
+        "type": "perspective",
+        "fov": 60.000003814697266,
+        "near_clipping_plane": 0.10000000149011612,
+        "far_clipping_plane": 31.5,
+        "ortho_view_width": 16.0,
+        "ortho_view_height": 9.0
+      }
+    },
+    {
+      "name": "plane",
+      "position": [
+        0.0,
+        -2.7200000286102295,
+        0.0
+      ],
+      "orientation": [
+        90.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        20.0,
+        20.0,
+        0.10000000149011612
+      ],
+      "game_object": {
+        "model": "models/cube/cube.obj",
+        "materials": [
+          "materials/pbr"
+        ]
+      }
+    },
+    {
+      "name": "root",
+      "position": [
+        0.0,
+        0.07999999821186066,
+        0.0
+      ],
+      "game_object": {
+        "materials": [
+          "materials/pbr"
+        ],
+        "controller": "rubik_controller"
+      },
+      "children": [
+        {
+          "name": "rotator",
+          "game_object": {
+            "materials": [
+              "materials/pbr"
+            ]
+          }
+        },
+        {
+          "name": "red/green/white_corner",
+          "position": [
+            -1.0,
+            1.0,
+            -1.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "red_face",
+              "position": [
+                0.0,
+                0.0,
+                -0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/red"
+                ]
+              }
+            },
+            {
+              "name": "green_face",
+              "position": [
+                -0.4749999940395355,
+                0.0,
+                0.0
+              ],
+              "orientation": [
+                0.0,
+                90.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/green"
+                ]
+              }
+            },
+            {
+              "name": "white_face",
+              "position": [
+                0.0,
+                0.4749999940395355,
+                0.0
+              ],
+              "orientation": [
+                90.0,
+                0.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/white"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "red/yellow/white_corner",
+          "position": [
+            1.0,
+            1.0,
+            -1.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "red_face",
+              "position": [
+                0.0,
+                0.0,
+                -0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/red"
+                ]
+              }
+            },
+            {
+              "name": "yellow_face",
+              "position": [
+                0.4749999940395355,
+                0.0,
+                0.0
+              ],
+              "orientation": [
+                0.0,
+                90.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/yellow"
+                ]
+              }
+            },
+            {
+              "name": "white_face",
+              "position": [
+                0.0,
+                0.4749999940395355,
+                0.0
+              ],
+              "orientation": [
+                90.0,
+                0.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/white"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "red/green/blue_corner",
+          "position": [
+            -1.0,
+            -1.0,
+            -1.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "red_face",
+              "position": [
+                0.0,
+                0.0,
+                -0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/red"
+                ]
+              }
+            },
+            {
+              "name": "green_face",
+              "position": [
+                -0.4749999940395355,
+                0.0,
+                0.0
+              ],
+              "orientation": [
+                0.0,
+                90.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/green"
+                ]
+              }
+            },
+            {
+              "name": "blue_face",
+              "position": [
+                0.0,
+                -0.4749999940395355,
+                0.0
+              ],
+              "orientation": [
+                90.0,
+                0.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/blue"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "red/yellow/blue_corner",
+          "position": [
+            1.0,
+            -1.0,
+            -1.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "red_face",
+              "position": [
+                0.0,
+                0.0,
+                -0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/red"
+                ]
+              }
+            },
+            {
+              "name": "yellow_face",
+              "position": [
+                0.4749999940395355,
+                0.0,
+                0.0
+              ],
+              "orientation": [
+                0.0,
+                90.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/yellow"
+                ]
+              }
+            },
+            {
+              "name": "blue_face",
+              "position": [
+                0.0,
+                -0.4749999940395355,
+                0.0
+              ],
+              "orientation": [
+                90.0,
+                0.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/blue"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "red/green_edge",
+          "position": [
+            -1.0,
+            0.0,
+            -1.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "red_face",
+              "position": [
+                0.0,
+                0.0,
+                -0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/red"
+                ]
+              }
+            },
+            {
+              "name": "green_face",
+              "position": [
+                -0.4749999940395355,
+                0.0,
+                0.0
+              ],
+              "orientation": [
+                0.0,
+                90.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/green"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "red/yellow_edge",
+          "position": [
+            1.0,
+            0.0,
+            -1.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "red_face",
+              "position": [
+                0.0,
+                0.0,
+                -0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/red"
+                ]
+              }
+            },
+            {
+              "name": "yellow_face",
+              "position": [
+                0.4749999940395355,
+                0.0,
+                0.0
+              ],
+              "orientation": [
+                0.0,
+                90.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/yellow"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "orange/green/white_corner",
+          "position": [
+            -1.0,
+            1.0,
+            1.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "orange_face",
+              "position": [
+                0.0,
+                0.0,
+                0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/orange"
+                ]
+              }
+            },
+            {
+              "name": "green_face",
+              "position": [
+                -0.4749999940395355,
+                0.0,
+                0.0
+              ],
+              "orientation": [
+                0.0,
+                90.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/green"
+                ]
+              }
+            },
+            {
+              "name": "white_face",
+              "position": [
+                0.0,
+                0.4749999940395355,
+                0.0
+              ],
+              "orientation": [
+                90.0,
+                0.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/white"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "orange/yellow/white_corner",
+          "position": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "orange_face",
+              "position": [
+                0.0,
+                0.0,
+                0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/orange"
+                ]
+              }
+            },
+            {
+              "name": "yellow_face",
+              "position": [
+                0.4749999940395355,
+                0.0,
+                0.0
+              ],
+              "orientation": [
+                0.0,
+                90.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/yellow"
+                ]
+              }
+            },
+            {
+              "name": "white_face",
+              "position": [
+                0.0,
+                0.4749999940395355,
+                0.0
+              ],
+              "orientation": [
+                90.0,
+                0.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/white"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "orange/green/blue_corner",
+          "position": [
+            -1.0,
+            -1.0,
+            1.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "orange_face",
+              "position": [
+                0.0,
+                0.0,
+                0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/orange"
+                ]
+              }
+            },
+            {
+              "name": "green_face",
+              "position": [
+                -0.4749999940395355,
+                0.0,
+                0.0
+              ],
+              "orientation": [
+                0.0,
+                90.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/green"
+                ]
+              }
+            },
+            {
+              "name": "blue_face",
+              "position": [
+                0.0,
+                -0.4749999940395355,
+                0.0
+              ],
+              "orientation": [
+                90.0,
+                0.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/blue"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "orange/yellow/blue_corner",
+          "position": [
+            1.0,
+            -1.0,
+            1.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "orange_face",
+              "position": [
+                0.0,
+                0.0,
+                0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/orange"
+                ]
+              }
+            },
+            {
+              "name": "yellow_face",
+              "position": [
+                0.4749999940395355,
+                0.0,
+                0.0
+              ],
+              "orientation": [
+                0.0,
+                90.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/yellow"
+                ]
+              }
+            },
+            {
+              "name": "blue_face",
+              "position": [
+                0.0,
+                -0.4749999940395355,
+                0.0
+              ],
+              "orientation": [
+                90.0,
+                0.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/blue"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "green/orange_edge",
+          "position": [
+            -1.0,
+            0.0,
+            1.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "green_face",
+              "position": [
+                -0.4749999940395355,
+                0.0,
+                0.0
+              ],
+              "orientation": [
+                0.0,
+                90.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/green"
+                ]
+              }
+            },
+            {
+              "name": "orange_face",
+              "position": [
+                0.0,
+                0.0,
+                0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/orange"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "yellow/orange_edge",
+          "position": [
+            1.0,
+            0.0,
+            1.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "yellow_face",
+              "position": [
+                0.4749999940395355,
+                0.0,
+                0.0
+              ],
+              "orientation": [
+                0.0,
+                90.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/yellow"
+                ]
+              }
+            },
+            {
+              "name": "orange_face",
+              "position": [
+                0.0,
+                0.0,
+                0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/orange"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "red/white_edge",
+          "position": [
+            0.0,
+            1.0,
+            -1.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "red_face",
+              "position": [
+                0.0,
+                0.0,
+                -0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/red"
+                ]
+              }
+            },
+            {
+              "name": "white_face",
+              "position": [
+                0.0,
+                0.4749999940395355,
+                0.0
+              ],
+              "orientation": [
+                90.0,
+                0.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/white"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "red/blue_edge",
+          "position": [
+            0.0,
+            -1.0,
+            -1.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "red_face",
+              "position": [
+                0.0,
+                0.0,
+                -0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/red"
+                ]
+              }
+            },
+            {
+              "name": "blue_face",
+              "position": [
+                0.0,
+                -0.4749999940395355,
+                0.0
+              ],
+              "orientation": [
+                90.0,
+                0.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/blue"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "red Center",
+          "position": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "red_face",
+              "position": [
+                0.0,
+                0.0,
+                -0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/red"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "orange/white_edge",
+          "position": [
+            0.0,
+            1.0,
+            1.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "orange_face",
+              "position": [
+                0.0,
+                0.0,
+                0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/orange"
+                ]
+              }
+            },
+            {
+              "name": "white_face",
+              "position": [
+                0.0,
+                0.4749999940395355,
+                0.0
+              ],
+              "orientation": [
+                90.0,
+                0.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/white"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "orange/blue_edge",
+          "position": [
+            0.0,
+            -1.0,
+            1.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "orange_face",
+              "position": [
+                0.0,
+                0.0,
+                0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/orange"
+                ]
+              }
+            },
+            {
+              "name": "blue_face",
+              "position": [
+                0.0,
+                -0.4749999940395355,
+                0.0
+              ],
+              "orientation": [
+                90.0,
+                0.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/blue"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "orange Center",
+          "position": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "orientation": [
+            0.0,
+            180.0,
+            0.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "orange_face",
+              "position": [
+                0.0,
+                0.0,
+                -0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/orange"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "green/white_edge",
+          "position": [
+            -1.0,
+            1.0,
+            0.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "green_face",
+              "position": [
+                -0.4749999940395355,
+                0.0,
+                0.0
+              ],
+              "orientation": [
+                0.0,
+                90.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/green"
+                ]
+              }
+            },
+            {
+              "name": "white_face",
+              "position": [
+                0.0,
+                0.4749999940395355,
+                0.0
+              ],
+              "orientation": [
+                90.0,
+                0.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/white"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "green/blue_edge",
+          "position": [
+            -1.0,
+            -1.0,
+            0.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "green_face",
+              "position": [
+                -0.4749999940395355,
+                0.0,
+                0.0
+              ],
+              "orientation": [
+                0.0,
+                90.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/green"
+                ]
+              }
+            },
+            {
+              "name": "blue_face",
+              "position": [
+                0.0,
+                -0.4749999940395355,
+                0.0
+              ],
+              "orientation": [
+                90.0,
+                0.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/blue"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "yellow/white_edge",
+          "position": [
+            1.0,
+            1.0,
+            0.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "yellow_face",
+              "position": [
+                0.4749999940395355,
+                0.0,
+                0.0
+              ],
+              "orientation": [
+                0.0,
+                90.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/yellow"
+                ]
+              }
+            },
+            {
+              "name": "white_face",
+              "position": [
+                0.0,
+                0.4749999940395355,
+                0.0
+              ],
+              "orientation": [
+                90.0,
+                0.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/white"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "yellow/blue_edge",
+          "position": [
+            1.0,
+            -1.0,
+            0.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "yellow_face",
+              "position": [
+                0.4749999940395355,
+                0.0,
+                0.0
+              ],
+              "orientation": [
+                0.0,
+                90.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/yellow"
+                ]
+              }
+            },
+            {
+              "name": "blue_face",
+              "position": [
+                0.0,
+                -0.4749999940395355,
+                0.0
+              ],
+              "orientation": [
+                90.0,
+                0.0,
+                0.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/blue"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "green Center",
+          "position": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            90.0,
+            0.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "green_face",
+              "position": [
+                0.0,
+                0.0,
+                -0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/green"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "yellow Center",
+          "position": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            -90.0,
+            0.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "yellow_face",
+              "position": [
+                0.0,
+                0.0,
+                -0.4749999940395355
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/yellow"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "white Center",
+          "position": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "orientation": [
+            90.0,
+            0.0,
+            0.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "white_face",
+              "position": [
+                0.0,
+                0.0,
+                -0.4749999940395355
+              ],
+              "orientation": [
+                0.0,
+                0.0,
+                90.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/white"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "blue Center",
+          "position": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "orientation": [
+            -90.0,
+            0.0,
+            0.0
+          ],
+          "collider": {
+            "size": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "offset": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "game_object": {
+            "model": "models/rubik/rubik_piece.obj",
+            "materials": [
+              "materials/rubik/skeleton"
+            ]
+          },
+          "children": [
+            {
+              "name": "blue_face",
+              "position": [
+                0.0,
+                0.0,
+                -0.4749999940395355
+              ],
+              "orientation": [
+                0.0,
+                0.0,
+                90.0
+              ],
+              "game_object": {
+                "model": "models/rubik/rubik_face.obj",
+                "materials": [
+                  "materials/rubik/blue"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

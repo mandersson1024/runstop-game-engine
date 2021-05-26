@@ -1,0 +1,39 @@
+{
+  "environment_map": "environments/factory_catwalk/factory_catwalk",
+  "directional_light": {
+    "name": "Directional Light",
+    "camera": {
+      "type": "perspective",
+      "fov": 60.000003814697266,
+      "near_clipping_plane": 0.10000000149011612,
+      "far_clipping_plane": 20.0,
+      "ortho_view_width": 16.0,
+      "ortho_view_height": 9.0
+    },
+    "light_source": {
+      "color": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "transforms": [
+    {
+      "name": "main_camera",
+      "position": [
+        0.0,
+        0.0,
+        -10.0
+      ],
+      "camera": {
+        "type": "perspective",
+        "fov": 60.000003814697266,
+        "near_clipping_plane": 0.10000000149011612,
+        "far_clipping_plane": 20.0,
+        "ortho_view_width": 16.0,
+        "ortho_view_height": 9.0
+      }
+    }
+  ]
+}

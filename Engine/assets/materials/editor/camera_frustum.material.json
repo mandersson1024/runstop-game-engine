@@ -1,0 +1,30 @@
+{
+  "shader": "shaders/flat_color/flat_color",
+  "blend_state": "default",
+  "rasterizer_state": "default",
+  "sampler_state": "default",
+  "basecolor_tint": [
+    0.23038984835147858,
+    0.23039133846759796,
+    0.23039215803146362,
+    1
+  ],
+  "basecolor_map": "default_white",
+  "roughness_map": "default_white",
+  "metallic_map": "default_white",
+  "ambient_occlusion_map": "default_white",
+  "normal_map": "default_normal_map",
+  "uv_repeat": 1.0,
+  "roughness_range": [
+    0.0,
+    1.0
+  ],
+  "metallic_range": [
+    0.0,
+    1.0
+  ],
+  "ambient_occlusion_range": [
+    0.0,
+    1.0
+  ]
+}

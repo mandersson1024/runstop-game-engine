@@ -1,0 +1,30 @@
+{
+  "shader": "shaders/pbr/pbr",
+  "blend_state": "default",
+  "rasterizer_state": "default",
+  "sampler_state": "default",
+  "basecolor_tint": [
+    0.02551903761923313,
+    0.06795520335435867,
+    0.08823531866073608,
+    0.0
+  ],
+  "basecolor_map": "material_maps/monkey_scene/ground/basecolor.png",
+  "roughness_range": [
+    0.0,
+    1.0
+  ],
+  "roughness_map": "material_maps/monkey_scene/ground/roughness.png",
+  "metallic_range": [
+    0.0,
+    1.0
+  ],
+  "metallic_map": "material_maps/monkey_scene/ground/metallic.png",
+  "ambient_occlusion_map": "material_maps/monkey_scene/ground/ambientocclusion.png",
+  "ambient_occlusion_range": [
+    0.0,
+    1.0
+  ],
+  "normal_map": "material_maps/monkey_scene/ground/normal.png",
+  "uv_repeat": 8.0
+}

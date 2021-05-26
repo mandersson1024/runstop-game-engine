@@ -1,0 +1,3 @@
+{
+  "source": "shaders/compute/equirectangular_to_cube.hlsl"
+}

@@ -1,0 +1,5 @@
+{
+  "texture_filepath": "models/quad/quad_orientation.png",
+  "sampler_state": "default",
+  "mipmap": true
+}

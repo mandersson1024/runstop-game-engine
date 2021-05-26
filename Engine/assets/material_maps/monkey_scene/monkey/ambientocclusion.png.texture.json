@@ -1,0 +1,5 @@
+{
+  "texture_filepath": "material_maps/monkey_scene/monkey/ambientocclusion.png",
+  "sampler_state": "default",
+  "mipmap": true
+}

@@ -1,0 +1,5 @@
+{
+  "texture_filepath": "material_maps/monkey_scene/ground/metallic.png",
+  "sampler_state": "default",
+  "mipmap": true
+}

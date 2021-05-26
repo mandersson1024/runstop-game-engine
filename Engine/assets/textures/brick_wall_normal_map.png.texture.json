@@ -1,0 +1,5 @@
+{
+  "texture_filepath": "textures/brick_wall_normal_map.png",
+  "sampler_state": "default",
+  "mipmap": true
+}

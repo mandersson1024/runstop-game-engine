@@ -1,0 +1,5 @@
+{
+  "pixel_source": "shaders/loading/loading_ps.hlsl",
+  "vertex_source": "shaders/loading/loading_vs.hlsl",
+  "vertex_type": "minimal"
+}

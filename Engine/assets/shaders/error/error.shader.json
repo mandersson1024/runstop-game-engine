@@ -1,0 +1,5 @@
+{
+  "pixel_source": "shaders/error/error_ps.hlsl",
+  "vertex_source": "shaders/error/error_vs.hlsl",
+  "vertex_type": "minimal"
+}

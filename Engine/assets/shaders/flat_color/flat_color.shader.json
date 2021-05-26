@@ -1,0 +1,5 @@
+{
+  "pixel_source": "shaders/flat_color/flat_color_ps.hlsl",
+  "vertex_source": "shaders/flat_color/flat_color_vs.hlsl",
+  "vertex_type": "minimal"
+}

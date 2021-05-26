@@ -1,0 +1,130 @@
+{
+  "environment_map": "environments/factory_catwalk/factory_catwalk",
+  "directional_light": {
+    "name": "directional_light",
+    "position": [
+      -4.46999979019165,
+      10.0,
+      -10.0
+    ],
+    "orientation": [
+      33.54999923706055,
+      10.928000450134277,
+      -3.319607276353054e-05
+    ],
+    "camera": {
+      "type": "perspective",
+      "fov": 35.000003814697266,
+      "near_clipping_plane": 10.300000190734863,
+      "far_clipping_plane": 18.0,
+      "ortho_view_width": 8.899999618530273,
+      "ortho_view_height": 5.900000095367432
+    },
+    "light_source": {
+      "color": [
+        1200.0,
+        1200.0,
+        1200.0
+      ]
+    }
+  },
+  "transforms": [
+    {
+      "name": "main_camera",
+      "position": [
+        0.0,
+        0.0,
+        -5.0
+      ],
+      "camera": {
+        "type": "perspective",
+        "fov": 60.000003814697266,
+        "near_clipping_plane": 0.10000000149011612,
+        "far_clipping_plane": 31.5,
+        "ortho_view_width": 16.0,
+        "ortho_view_height": 9.0
+      }
+    },
+    {
+      "name": "ground",
+      "position": [
+        0.0,
+        -1.2999999523162842,
+        0.0
+      ],
+      "orientation": [
+        90.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        20.0,
+        20.0,
+        1.0
+      ],
+      "game_object": {
+        "model": "models/quad/quad.obj",
+        "materials": [
+          "materials/monkey/ground"
+        ]
+      }
+    },
+    {
+      "name": "sphere",
+      "position": [
+        -3.0,
+        0.0,
+        0.0
+      ],
+      "orientation": [
+        90.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        0.014999999664723873,
+        0.014999999664723873,
+        0.014999999664723873
+      ],
+      "game_object": {
+        "model": "models/sphere_2_tiles/sphere_2_tiles.fbx",
+        "materials": [
+          "materials/monkey/sphere"
+        ]
+      }
+    },
+    {
+      "name": "monkey",
+      "game_object": {
+        "model": "models/blender_monkey/blender_monkey_spp.obj",
+        "materials": [
+          "materials/monkey/monkey"
+        ]
+      }
+    },
+    {
+      "name": "cube",
+      "position": [
+        3.0,
+        -0.5199999809265137,
+        0.0
+      ],
+      "orientation": [
+        90.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        0.011500000022351742,
+        0.011500000022351742,
+        0.011500000022351742
+      ],
+      "game_object": {
+        "model": "models/rounded_cube/rounded_cube.fbx",
+        "materials": [
+          "materials/monkey/cube"
+        ]
+      }
+    }
+  ]
+}

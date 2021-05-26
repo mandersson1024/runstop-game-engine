@@ -1,0 +1,30 @@
+{
+  "shader": "shaders/pbr/pbr",
+  "blend_state": "default",
+  "rasterizer_state": "default",
+  "sampler_state": "default",
+  "basecolor_tint": [
+    1.0,
+    1.0,
+    1.0,
+    0.0
+  ],
+  "basecolor_map": "default_white",
+  "roughness_range": [
+    0.0,
+    1.0
+  ],
+  "roughness_map": "default_black",
+  "metallic_range": [
+    0.0,
+    1.0
+  ],
+  "metallic_map": "default_black",
+  "ambient_occlusion_map": "default_white",
+  "ambient_occlusion_range": [
+    0.0,
+    1.0
+  ],
+  "normal_map": "default_normal_map",
+  "uv_repeat": 1.0
+}

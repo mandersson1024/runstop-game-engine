@@ -1,0 +1,5 @@
+{
+  "texture_filepath": "environments/newport_loft/irradiance.hdr",
+  "sampler_state": "default",
+  "mipmap": true
+}

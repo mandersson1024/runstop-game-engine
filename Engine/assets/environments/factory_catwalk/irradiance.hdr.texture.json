@@ -1,0 +1,5 @@
+{
+  "texture_filepath": "environments/factory_catwalk/irradiance.hdr",
+  "sampler_state": "default",
+  "mipmap": true
+}

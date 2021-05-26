@@ -1,0 +1,4 @@
+{
+  "shader": "shaders/pbr/pbr",
+  "basecolor_map": "textures/cube_orientation.png"
+}

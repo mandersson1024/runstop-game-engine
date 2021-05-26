@@ -1,0 +1,5 @@
+{
+  "pixel_source": "shaders/shadow_map/shadow_map_ps.hlsl",
+  "vertex_source": "shaders/shadow_map/shadow_map_vs.hlsl",
+  "vertex_type": "minimal"
+}

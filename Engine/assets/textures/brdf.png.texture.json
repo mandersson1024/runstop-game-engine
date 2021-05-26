@@ -1,0 +1,5 @@
+{
+  "texture_filepath": "textures/brdf.png",
+  "sampler_state": "default",
+  "mipmap": true
+}

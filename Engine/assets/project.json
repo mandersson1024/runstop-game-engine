@@ -1,0 +1,13 @@
+{
+  "startup_scene": "scenes/monkey",
+  "draw_helper_lines": false,
+  "run_in_editor": false,
+  "draw_skybox_using_point_sampler": false,
+  "skybox_display_type": 2,
+  "draw_colliders": false,
+  "radiance_map_roughness": 0.9860000014305115,
+  "ignore_light_sources": false,
+  "ignore_diffuse_ibl": false,
+  "ignore_specular_ibl": false,
+  "ignore_ambient_occlusion": false
+}

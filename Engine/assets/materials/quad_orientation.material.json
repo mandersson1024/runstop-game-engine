@@ -1,0 +1,4 @@
+{
+  "shader": "shaders/pbr/pbr",
+  "basecolor_map": "models/quad/quad_orientation.png"
+}

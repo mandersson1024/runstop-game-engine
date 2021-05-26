@@ -1,0 +1,5 @@
+{
+  "pixel_source": "shaders/unlit/unlit_ps.hlsl",
+  "vertex_source": "shaders/unlit/unlit_vs.hlsl",
+  "vertex_type": "default"
+}

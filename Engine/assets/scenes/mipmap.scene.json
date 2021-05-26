@@ -1,0 +1,77 @@
+{
+  "directional_light": {
+    "name": "directional_light",
+    "position": [
+      -1.2799999713897705,
+      3.9149999618530273,
+      -4.139999866485596
+    ],
+    "orientation": [
+      42.99399948120117,
+      45.04600143432617,
+      0.0
+    ],
+    "camera": {
+      "type": "perspective",
+      "fov": 57.000003814697266,
+      "near_clipping_plane": 0.10000000149011612,
+      "far_clipping_plane": 21.600000381469727,
+      "ortho_view_width": 12.5,
+      "ortho_view_height": 14.0
+    },
+    "light_source": {
+      "color": [
+        50.0,
+        50.0,
+        42.400001525878906
+      ]
+    }
+  },
+  "transforms": [
+    {
+      "name": "main_camera",
+      "position": [
+        0.0,
+        0.0,
+        -15.0
+      ],
+      "orientation": [
+        1.868296270419625e-17,
+        0.0,
+        0.0
+      ],
+      "camera": {
+        "type": "perspective",
+        "fov": 60.000003814697266,
+        "near_clipping_plane": 0.10000000149011612,
+        "far_clipping_plane": 31.5,
+        "ortho_view_width": 16.0,
+        "ortho_view_height": 9.0
+      }
+    },
+    {
+      "name": "plane",
+      "position": [
+        0.0,
+        -2.7200000286102295,
+        0.0
+      ],
+      "orientation": [
+        90.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        200.0,
+        200.0,
+        1
+      ],
+      "game_object": {
+        "model": "models/quad/quad.obj",
+        "materials": [
+          "materials/mipmap_test"
+        ]
+      }
+    }
+  ]
+}
