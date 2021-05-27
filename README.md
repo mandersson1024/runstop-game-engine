@@ -15,9 +15,8 @@ This project is for my own enjoyment and education. Anyone who sees this is welc
 * Features
   * Renderer
     * Physically-Based Rendering
+    * Skybox/Radiance/Irradiance
     * Shadowmap (one direct light source, hard shadows)
-    * Skybox
-    * Implemented using DirectX 11
   * Resource System
     * Multi-threaded asset loading
     * Asset hot reload in editor
