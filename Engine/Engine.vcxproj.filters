@@ -13,14 +13,14 @@
     <Filter Include="src\Engine">
       <UniqueIdentifier>{12A1320E-FE58-745B-6760-4DB753370F4C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Engine\Application">
+      <UniqueIdentifier>{D5079803-C101-C155-AA6E-5766960727C2}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Engine\Assets">
       <UniqueIdentifier>{B4BF66A7-20D6-643D-694D-F05ED5A235C5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Engine\Events">
-      <UniqueIdentifier>{B624EAB0-223B-E846-6BB2-7368D707B9CE}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Engine\Layers">
-      <UniqueIdentifier>{910FCDBF-FD25-CB55-469D-5677B2F29BDD}</UniqueIdentifier>
+    <Filter Include="src\Engine\Platform">
+      <UniqueIdentifier>{A63124B0-1293-01BE-9B00-48700761387D}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Engine\Raycast">
       <UniqueIdentifier>{980D4B87-84F1-0BDD-ED51-0630D954F65E}</UniqueIdentifier>
@@ -37,14 +37,8 @@
     <Filter Include="src\Engine\Scene">
       <UniqueIdentifier>{AF1338A9-9B0C-57FB-C43E-3C80B0963607}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Engine\Tween">
-      <UniqueIdentifier>{A42255A9-901B-74FB-B94D-5980A5A55307}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Engine\Utils">
       <UniqueIdentifier>{F2A765A9-DEA0-84FB-07D3-6980F32A6407}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Engine\Win32">
-      <UniqueIdentifier>{74DE83A9-60D7-A2FB-8909-888075618207}</UniqueIdentifier>
     </Filter>
     <Filter Include="third_party">
       <UniqueIdentifier>{0FB18DF1-7B66-06E7-045B-00BE700FFDEA}</UniqueIdentifier>
@@ -94,7 +88,25 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine\Application\Application.h">
-      <Filter>src\Engine</Filter>
+      <Filter>src\Engine\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Application\ApplicationEvent.h">
+      <Filter>src\Engine\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Application\Event.h">
+      <Filter>src\Engine\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Application\KeyEvent.h">
+      <Filter>src\Engine\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Application\Layer.h">
+      <Filter>src\Engine\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Application\LayerStack.h">
+      <Filter>src\Engine\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Application\MouseEvent.h">
+      <Filter>src\Engine\Application</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Assets\Asset.h">
       <Filter>src\Engine\Assets</Filter>
@@ -105,16 +117,13 @@
     <ClInclude Include="src\Engine\Assets\AssetLoadingState.h">
       <Filter>src\Engine\Assets</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Assets\Assets.h">
-      <Filter>src\Engine\Assets</Filter>
-    </ClInclude>
     <ClInclude Include="src\Engine\Assets\AssetPaths.h">
       <Filter>src\Engine\Assets</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Assets\ComputeShaderAsset.h">
+    <ClInclude Include="src\Engine\Assets\Assets.h">
       <Filter>src\Engine\Assets</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Renderer\EnvironmentMap.h">
+    <ClInclude Include="src\Engine\Assets\ComputeShaderAsset.h">
       <Filter>src\Engine\Assets</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Assets\EnvironmentMapAsset.h">
@@ -123,19 +132,10 @@
     <ClInclude Include="src\Engine\Assets\MaterialAsset.h">
       <Filter>src\Engine\Assets</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Renderer\Mesh.h">
-      <Filter>src\Engine\Assets</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Utils\MeshUtils.h">
-      <Filter>src\Engine\Assets</Filter>
-    </ClInclude>
     <ClInclude Include="src\Engine\Assets\Model.h">
       <Filter>src\Engine\Assets</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Assets\ModelAsset.h">
-      <Filter>src\Engine\Assets</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Utils\ModelImporter.h">
       <Filter>src\Engine\Assets</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Assets\RawTexture.h">
@@ -144,56 +144,41 @@
     <ClInclude Include="src\Engine\Assets\SceneAsset.h">
       <Filter>src\Engine\Assets</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Renderer\Shader.h">
-      <Filter>src\Engine\Assets</Filter>
-    </ClInclude>
     <ClInclude Include="src\Engine\Assets\ShaderAsset.h">
-      <Filter>src\Engine\Assets</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Renderer\ShaderCompiler.h">
-      <Filter>src\Engine\Assets</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Renderer\Texture2D.h">
       <Filter>src\Engine\Assets</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Assets\Texture2DAsset.h">
       <Filter>src\Engine\Assets</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Renderer\TextureCube.h">
-      <Filter>src\Engine\Assets</Filter>
-    </ClInclude>
     <ClInclude Include="src\Engine\EngineAssert.h">
       <Filter>src\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Application\ApplicationEvent.h">
-      <Filter>src\Engine\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Application\Event.h">
-      <Filter>src\Engine\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Application\KeyEvent.h">
-      <Filter>src\Engine\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Application\MouseEvent.h">
-      <Filter>src\Engine\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Utils\FrameTimer.h">
-      <Filter>src\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Utils\Json.h">
-      <Filter>src\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Application\Layer.h">
-      <Filter>src\Engine\Layers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Application\LayerStack.h">
-      <Filter>src\Engine\Layers</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Logger.h">
       <Filter>src\Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Main.h">
       <Filter>src\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Platform\ConsoleWindow.h">
+      <Filter>src\Engine\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Platform\FileTimestamp.h">
+      <Filter>src\Engine\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Platform\INativeWindowListener.h">
+      <Filter>src\Engine\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Platform\Input.h">
+      <Filter>src\Engine\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Platform\NativeWindow.h">
+      <Filter>src\Engine\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Platform\Window.h">
+      <Filter>src\Engine\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Platform\WindowsMessageMap.h">
+      <Filter>src\Engine\Platform</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\ProjectSettings.h">
       <Filter>src\Engine</Filter>
@@ -202,12 +187,6 @@
       <Filter>src\Engine\Raycast</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Renderer\BlendState.h">
-      <Filter>src\Engine\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Scene\Camera.h">
-      <Filter>src\Engine\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Utils\ComputeShaderTextureFilter.h">
       <Filter>src\Engine\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Renderer\ConstantBuffers\ConstantBuffer.h">
@@ -228,7 +207,13 @@
     <ClInclude Include="src\Engine\Renderer\DX\DeviceResources.h">
       <Filter>src\Engine\Renderer\DX</Filter>
     </ClInclude>
+    <ClInclude Include="src\Engine\Renderer\EnvironmentMap.h">
+      <Filter>src\Engine\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Engine\Renderer\Graphics.h">
+      <Filter>src\Engine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Renderer\GraphicsSettings.h">
       <Filter>src\Engine\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Renderer\IndexBuffer.h">
@@ -240,6 +225,9 @@
     <ClInclude Include="src\Engine\Renderer\Material.h">
       <Filter>src\Engine\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Engine\Renderer\Mesh.h">
+      <Filter>src\Engine\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Engine\Renderer\RasterizerState.h">
       <Filter>src\Engine\Renderer</Filter>
     </ClInclude>
@@ -249,11 +237,26 @@
     <ClInclude Include="src\Engine\Renderer\SamplerState.h">
       <Filter>src\Engine\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Engine\Renderer\Shader.h">
+      <Filter>src\Engine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Renderer\ShaderCompiler.h">
+      <Filter>src\Engine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Renderer\Texture2D.h">
+      <Filter>src\Engine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Renderer\TextureCube.h">
+      <Filter>src\Engine\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Engine\Renderer\VertexBuffer.h">
       <Filter>src\Engine\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Renderer\VertexTypes.h">
       <Filter>src\Engine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Scene\Camera.h">
+      <Filter>src\Engine\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Scene\GameObject.h">
       <Filter>src\Engine\Scene</Filter>
@@ -267,13 +270,28 @@
     <ClInclude Include="src\Engine\Scene\Transform.h">
       <Filter>src\Engine\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Utils\TimeLog.h">
-      <Filter>src\Engine</Filter>
+    <ClInclude Include="src\Engine\Utils\ComputeShaderTextureFilter.h">
+      <Filter>src\Engine\Utils</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Utils\Easing.h">
-      <Filter>src\Engine\Tween</Filter>
+      <Filter>src\Engine\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Utils\FileUtils.h">
+      <Filter>src\Engine\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Utils\FrameTimer.h">
+      <Filter>src\Engine\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Utils\Json.h">
+      <Filter>src\Engine\Utils</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Utils\MathUtils.h">
+      <Filter>src\Engine\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Utils\MeshUtils.h">
+      <Filter>src\Engine\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Utils\ModelImporter.h">
       <Filter>src\Engine\Utils</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Utils\StringUtils.h">
@@ -282,29 +300,8 @@
     <ClInclude Include="src\Engine\Utils\TextureUtils.h">
       <Filter>src\Engine\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Platform\ConsoleWindow.h">
-      <Filter>src\Engine\Win32</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Platform\FileTimestamp.h">
-      <Filter>src\Engine\Win32</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Utils\FileUtils.h">
-      <Filter>src\Engine\Win32</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Platform\INativeWindowListener.h">
-      <Filter>src\Engine\Win32</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Platform\Input.h">
-      <Filter>src\Engine\Win32</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Platform\NativeWindow.h">
-      <Filter>src\Engine\Win32</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Platform\WindowsMessageMap.h">
-      <Filter>src\Engine\Win32</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Platform\Window.h">
-      <Filter>src\Engine</Filter>
+    <ClInclude Include="src\Engine\Utils\TimeLog.h">
+      <Filter>src\Engine\Utils</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h">
       <Filter>src</Filter>
@@ -858,22 +855,27 @@
     <ClInclude Include="third_party\stb\stb_image.h">
       <Filter>third_party\stb</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Renderer\GraphicsSettings.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="assets\code\RubikController.cpp">
       <Filter>assets\code</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Application\Application.cpp">
-      <Filter>src\Engine</Filter>
+      <Filter>src\Engine\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Application\Layer.cpp">
+      <Filter>src\Engine\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Application\LayerStack.cpp">
+      <Filter>src\Engine\Application</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Assets\Asset.cpp">
       <Filter>src\Engine\Assets</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\Assets\Assets.cpp">
+    <ClCompile Include="src\Engine\Assets\AssetPaths.cpp">
       <Filter>src\Engine\Assets</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\Assets\AssetPaths.cpp">
+    <ClCompile Include="src\Engine\Assets\Assets.cpp">
       <Filter>src\Engine\Assets</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Assets\ComputeShaderAsset.cpp">
@@ -885,16 +887,7 @@
     <ClCompile Include="src\Engine\Assets\MaterialAsset.cpp">
       <Filter>src\Engine\Assets</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\Renderer\Mesh.cpp">
-      <Filter>src\Engine\Assets</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Utils\MeshUtils.cpp">
-      <Filter>src\Engine\Assets</Filter>
-    </ClCompile>
     <ClCompile Include="src\Engine\Assets\ModelAsset.cpp">
-      <Filter>src\Engine\Assets</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Utils\ModelImporter.cpp">
       <Filter>src\Engine\Assets</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Assets\RawTexture.cpp">
@@ -903,38 +896,32 @@
     <ClCompile Include="src\Engine\Assets\SceneAsset.cpp">
       <Filter>src\Engine\Assets</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\Renderer\Shader.cpp">
-      <Filter>src\Engine\Assets</Filter>
-    </ClCompile>
     <ClCompile Include="src\Engine\Assets\ShaderAsset.cpp">
-      <Filter>src\Engine\Assets</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Renderer\ShaderCompiler.cpp">
-      <Filter>src\Engine\Assets</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Renderer\Texture2D.cpp">
       <Filter>src\Engine\Assets</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Assets\Texture2DAsset.cpp">
       <Filter>src\Engine\Assets</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\Renderer\TextureCube.cpp">
-      <Filter>src\Engine\Assets</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Utils\FrameTimer.cpp">
-      <Filter>src\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Utils\Json.cpp">
-      <Filter>src\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Application\Layer.cpp">
-      <Filter>src\Engine\Layers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Application\LayerStack.cpp">
-      <Filter>src\Engine\Layers</Filter>
-    </ClCompile>
     <ClCompile Include="src\Engine\Logger.cpp">
       <Filter>src\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Platform\ConsoleWindow.cpp">
+      <Filter>src\Engine\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Platform\FileTimestamp.cpp">
+      <Filter>src\Engine\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Platform\Input.cpp">
+      <Filter>src\Engine\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Platform\NativeWindow.cpp">
+      <Filter>src\Engine\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Platform\Window.cpp">
+      <Filter>src\Engine\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Platform\WindowsMessageMap.cpp">
+      <Filter>src\Engine\Platform</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\ProjectSettings.cpp">
       <Filter>src\Engine</Filter>
@@ -943,12 +930,6 @@
       <Filter>src\Engine\Raycast</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Renderer\BlendState.cpp">
-      <Filter>src\Engine\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Scene\Camera.cpp">
-      <Filter>src\Engine\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Utils\ComputeShaderTextureFilter.cpp">
       <Filter>src\Engine\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Renderer\ConstantBuffers\ConstantBuffer.cpp">
@@ -963,6 +944,9 @@
     <ClCompile Include="src\Engine\Renderer\IndexBuffer.cpp">
       <Filter>src\Engine\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Engine\Renderer\Mesh.cpp">
+      <Filter>src\Engine\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Engine\Renderer\RasterizerState.cpp">
       <Filter>src\Engine\Renderer</Filter>
     </ClCompile>
@@ -972,11 +956,26 @@
     <ClCompile Include="src\Engine\Renderer\SamplerState.cpp">
       <Filter>src\Engine\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Engine\Renderer\Shader.cpp">
+      <Filter>src\Engine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Renderer\ShaderCompiler.cpp">
+      <Filter>src\Engine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Renderer\Texture2D.cpp">
+      <Filter>src\Engine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Renderer\TextureCube.cpp">
+      <Filter>src\Engine\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Engine\Renderer\VertexBuffer.cpp">
       <Filter>src\Engine\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Renderer\VertexTypes.cpp">
       <Filter>src\Engine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Scene\Camera.cpp">
+      <Filter>src\Engine\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Scene\GameObject.cpp">
       <Filter>src\Engine\Scene</Filter>
@@ -990,13 +989,28 @@
     <ClCompile Include="src\Engine\Scene\Transform.cpp">
       <Filter>src\Engine\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\Utils\TimeLog.cpp">
-      <Filter>src\Engine</Filter>
+    <ClCompile Include="src\Engine\Utils\ComputeShaderTextureFilter.cpp">
+      <Filter>src\Engine\Utils</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Utils\Easing.cpp">
-      <Filter>src\Engine\Tween</Filter>
+      <Filter>src\Engine\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Utils\FileUtils.cpp">
+      <Filter>src\Engine\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Utils\FrameTimer.cpp">
+      <Filter>src\Engine\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Utils\Json.cpp">
+      <Filter>src\Engine\Utils</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Utils\MathUtils.cpp">
+      <Filter>src\Engine\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Utils\MeshUtils.cpp">
+      <Filter>src\Engine\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Utils\ModelImporter.cpp">
       <Filter>src\Engine\Utils</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Utils\StringUtils.cpp">
@@ -1005,26 +1019,8 @@
     <ClCompile Include="src\Engine\Utils\TextureUtils.cpp">
       <Filter>src\Engine\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\Platform\ConsoleWindow.cpp">
-      <Filter>src\Engine\Win32</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Platform\FileTimestamp.cpp">
-      <Filter>src\Engine\Win32</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Utils\FileUtils.cpp">
-      <Filter>src\Engine\Win32</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Platform\Input.cpp">
-      <Filter>src\Engine\Win32</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Platform\NativeWindow.cpp">
-      <Filter>src\Engine\Win32</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Platform\WindowsMessageMap.cpp">
-      <Filter>src\Engine\Win32</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Platform\Window.cpp">
-      <Filter>src\Engine</Filter>
+    <ClCompile Include="src\Engine\Utils\TimeLog.cpp">
+      <Filter>src\Engine\Utils</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp">
       <Filter>src</Filter>
