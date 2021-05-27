@@ -1,4 +1,7 @@
 ## RUNSTOP Game Engine 
+
+![runstop_demo_scene](https://user-images.githubusercontent.com/30025913/119792509-091b6080-bed6-11eb-99ca-4fe389259724.png)
+
 This project is for my own enjoyment and education. Anyone who sees this is welcome to have a look, though. If you want to build it you will have to figure out how to link the assimp lib, which is not included because of file size restrictions on GitHub.
 
 ### Overview
