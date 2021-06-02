@@ -20,3 +20,5 @@ This project is for my own enjoyment and education. Anyone who sees this is welc
   * Resource System
     * Multi-threaded asset loading
     * Asset hot reload in editor
+  * Other
+    * Raycasting
