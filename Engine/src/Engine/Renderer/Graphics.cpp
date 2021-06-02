@@ -16,17 +16,17 @@ namespace Engine
     }
 
     Graphics::Graphics(const GraphicsSettings& settings, HWND hWnd)
-		: settings_(settings)
+        : settings_(settings)
         , hwnd_(hWnd)
         , screenViewport_{}
-	{
+    {
         ENGINE_LOG("Creating Graphics");
 
         Setup();
         CheckAntiAliasingCapabilities();
         CreateWindowSizeDependentResources();
-	}
-	
+    }
+    
     void Graphics::Setup()
     {
         DX::ThrowIfFailed(CreateDXGIFactory1(IID_PPV_ARGS(dxgiFactory_.ReleaseAndGetAddressOf())));

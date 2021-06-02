@@ -5,9 +5,9 @@
 namespace Engine
 {
 
-	ConstantBuffer::ConstantBuffer(Type type)
+    ConstantBuffer::ConstantBuffer(Type type)
         : type_(type)
-	{
+    {
     }
 
     void ConstantBuffer::Initialize()

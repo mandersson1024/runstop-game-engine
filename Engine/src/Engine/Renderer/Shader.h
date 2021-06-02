@@ -7,30 +7,30 @@
 namespace Engine
 {
 
-	class Shader
-	{
-	public:
+    class Shader
+    {
+    public:
         Shader(const std::filesystem::path& vertexShaderFilePath, const std::filesystem::path& pixelShaderFilePath, VertexType vertexType);
 
-		void CompileVertexShader();
+        void CompileVertexShader();
         void CompilePixelShader();
         bool IsSuccessfullyCompiled() const;
-		
-		void Bind() const;
+        
+        void Bind() const;
 
         const std::filesystem::path& GetVertexShaderFilePath() const { return vertexShaderFilePath_; }
         const std::filesystem::path& GetPixelShaderFilePath() const { return pixelShaderFilePath_; }
 
-	private:
+    private:
         std::filesystem::path vertexShaderFilePath_;
         std::filesystem::path pixelShaderFilePath_;
 
         VertexType vertexType_;
 
-		Microsoft::WRL::ComPtr<ID3D11VertexShader> vertexShader_;
-		Microsoft::WRL::ComPtr<ID3D11PixelShader> pixelShader_;
-		Microsoft::WRL::ComPtr<ID3D11InputLayout> inputLayout_;
-	};
+        Microsoft::WRL::ComPtr<ID3D11VertexShader> vertexShader_;
+        Microsoft::WRL::ComPtr<ID3D11PixelShader> pixelShader_;
+        Microsoft::WRL::ComPtr<ID3D11InputLayout> inputLayout_;
+    };
 
 
     class ComputeShader

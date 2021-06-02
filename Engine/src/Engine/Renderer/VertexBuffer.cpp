@@ -25,20 +25,20 @@ namespace Engine
             .SysMemSlicePitch = 0, // has no meaning for vertex buffers
         };
 
-		auto result = Graphics::GetDevice()->CreateBuffer(&bufferDesc, &subresourceData, &buffer_);
+        auto result = Graphics::GetDevice()->CreateBuffer(&bufferDesc, &subresourceData, &buffer_);
 
         DX::ThrowIfFailed(result);
     }
 
     void VertexBuffer::Bind() const
     {
-		// TODO:
-		// This only draws one vertex buffer, while it is possible to draw several
-		// at once. Therefore, this should be handled at a higher lever than this.
-		const UINT strides[] = { stride_ };
-		const UINT offsets[] = { 0 };
+        // TODO:
+        // This only draws one vertex buffer, while it is possible to draw several
+        // at once. Therefore, this should be handled at a higher lever than this.
+        const UINT strides[] = { stride_ };
+        const UINT offsets[] = { 0 };
         WITH_GUARDED_GRAPHICS_CONTEXT(Graphics::GetContext()->IASetVertexBuffers(0, 1, buffer_.GetAddressOf(), strides, offsets));
-	}
+    }
 
 }
 

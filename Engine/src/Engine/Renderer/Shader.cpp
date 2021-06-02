@@ -6,7 +6,7 @@
 namespace Engine
 {
 
-	Shader::Shader(const std::filesystem::path& vertexShaderFilePath, const std::filesystem::path& pixelShaderFilePath, VertexType vertexType)
+    Shader::Shader(const std::filesystem::path& vertexShaderFilePath, const std::filesystem::path& pixelShaderFilePath, VertexType vertexType)
         : vertexShaderFilePath_(vertexShaderFilePath)
         , pixelShaderFilePath_(pixelShaderFilePath)
         , vertexType_(vertexType)
@@ -66,7 +66,7 @@ namespace Engine
         Graphics::GetContext()->PSSetShader(pixelShader_.Get(), nullptr, 0);
         Graphics::GetContext()->IASetInputLayout(inputLayout_.Get());
         );
-	}
+    }
 
     bool Shader::IsSuccessfullyCompiled() const
 {

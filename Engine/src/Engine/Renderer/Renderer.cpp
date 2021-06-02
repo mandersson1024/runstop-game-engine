@@ -32,22 +32,22 @@ namespace Engine
         , modelConstantsPS_(std::make_unique<ModelConstantBufferPS>())
         , gpuProfiler_(std::make_unique<CGpuProfiler>())
         , environment_(nullptr)
-	{
+    {
         WITH_GUARDED_GRAPHICS_CONTEXT(
             bool result = gpuProfiler_->Init(Graphics::GetDevice(), Graphics::GetContext());
             ENGINE_ASSERT(result, "");
         );
-	}
+    }
 
     Renderer::~Renderer()
     {
         WITH_GUARDED_GRAPHICS_CONTEXT(gpuProfiler_->Shutdown());
     }
 
-	int Renderer::GetNumDrawCallsLastFrame() const
-	{
-		return numDrawCallsLastFrame_;
-	}
+    int Renderer::GetNumDrawCallsLastFrame() const
+    {
+        return numDrawCallsLastFrame_;
+    }
 
     int Renderer::GetTriangleCountLastFrame() const
     {
@@ -321,20 +321,20 @@ namespace Engine
     }
 
     void Renderer::DrawIndexed(uint32_t indexCount)
-	{
+    {
         Graphics::DrawIndexed(indexCount, 0, 0);
-		numDrawCallsCurrentFrame_++;
-	}
+        numDrawCallsCurrentFrame_++;
+    }
 
-	void Renderer::SetClearColor(float color[4])
-	{
-		SetClearColor({ color[0], color[1], color[2], color[3] });
-	}
+    void Renderer::SetClearColor(float color[4])
+    {
+        SetClearColor({ color[0], color[1], color[2], color[3] });
+    }
 
-	void Renderer::SetClearColor(DirectX::XMVECTOR color)
-	{
-		state_.clearColor = color;
-	}
+    void Renderer::SetClearColor(DirectX::XMVECTOR color)
+    {
+        state_.clearColor = color;
+    }
 
     void Renderer::BindMaterial(std::shared_ptr<Material> material)
     {

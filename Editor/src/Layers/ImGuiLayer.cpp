@@ -61,35 +61,35 @@ namespace Editor
         );
     }
 
-	ImGuiLayer::~ImGuiLayer()
-	{
+    ImGuiLayer::~ImGuiLayer()
+    {
         window_.GetNativeWindow().RemoveWinProcHandler();
         WITH_GUARDED_GRAPHICS_CONTEXT(ImGui_ImplDX11_Shutdown());
         ImGui_ImplWin32_Shutdown();
         ImGui::DestroyContext();
-	}
+    }
 
-	void ImGuiLayer::OnEvent(Event& evt)
-	{
-		if (evt.GetEventType() == EventType::WindowResize)
-		{
+    void ImGuiLayer::OnEvent(Event& evt)
+    {
+        if (evt.GetEventType() == EventType::WindowResize)
+        {
 
-		}
+        }
 
-		ImGuiIO& io = ImGui::GetIO();
-		evt.handled |= evt.IsMouseEvent() & io.WantCaptureMouse;
-		evt.handled |= evt.IsKeyEvent() & io.WantCaptureKeyboard;
-	}
+        ImGuiIO& io = ImGui::GetIO();
+        evt.handled |= evt.IsMouseEvent() & io.WantCaptureMouse;
+        evt.handled |= evt.IsKeyEvent() & io.WantCaptureKeyboard;
+    }
 
-	void ImGuiLayer::Begin()
-	{
+    void ImGuiLayer::Begin()
+    {
         ImGui_ImplDX11_NewFrame();
         ImGui_ImplWin32_NewFrame();
         ImGui::NewFrame();
-	}
+    }
 
-	void ImGuiLayer::End()
-	{
+    void ImGuiLayer::End()
+    {
         ImGui::Render();
         WITH_GUARDED_GRAPHICS_CONTEXT(ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData()));
 
@@ -99,7 +99,7 @@ namespace Editor
             ImGui::UpdatePlatformWindows();
             WITH_GUARDED_GRAPHICS_CONTEXT(ImGui::RenderPlatformWindowsDefault());
         }
-	}
+    }
 
     void ImGuiLayer::OnAttach()
     {

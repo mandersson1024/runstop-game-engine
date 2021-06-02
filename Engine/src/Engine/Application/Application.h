@@ -13,8 +13,8 @@ namespace Engine {
     class ProjectSettings;
 
     class Application
-	{
-	public:
+    {
+    public:
 
         Application();
         virtual ~Application();
@@ -30,23 +30,23 @@ namespace Engine {
         virtual void OnInitialized() = 0;
 
         void Run();
-		void Stop();
-		
-		void PushLayer(std::shared_ptr<Layer> layer);
-		void PopLayer(std::shared_ptr<Layer> layer);
-
-	private:
-		void OnEvent(Event& evt);
-
-	private:
-		static Application* instance_;
+        void Stop();
         
-		std::unique_ptr<ProjectSettings> projectSettings_;
-		std::shared_ptr<Window> window_;
-		std::unique_ptr<LayerStack> layerStack_;
+        void PushLayer(std::shared_ptr<Layer> layer);
+        void PopLayer(std::shared_ptr<Layer> layer);
+
+    private:
+        void OnEvent(Event& evt);
+
+    private:
+        static Application* instance_;
+        
+        std::unique_ptr<ProjectSettings> projectSettings_;
+        std::shared_ptr<Window> window_;
+        std::unique_ptr<LayerStack> layerStack_;
         std::unique_ptr<Renderer> renderer_;
 
         bool running_ = true;
-	};
+    };
 
 }

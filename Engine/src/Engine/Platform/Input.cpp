@@ -4,29 +4,29 @@
 
 namespace Engine
 {
-	std::shared_ptr<Input> Input::instance_;
+    std::shared_ptr<Input> Input::instance_;
 
-	void Input::Init()
-	{
-		ENGINE_ASSERT(!instance_, "IO already initialized");
+    void Input::Init()
+    {
+        ENGINE_ASSERT(!instance_, "IO already initialized");
         ENGINE_LOG("Initializing IO");
-		instance_ = std::make_shared<Input>();
-	}
+        instance_ = std::make_shared<Input>();
+    }
 
-	void Input::Shutdown()
-	{
-	}
+    void Input::Shutdown()
+    {
+    }
 
-	Input::Input()
-	{
-		keyboard_ = std::make_unique<DirectX::Keyboard>();
-		mouse_ = std::make_unique<DirectX::Mouse>();
-	}
+    Input::Input()
+    {
+        keyboard_ = std::make_unique<DirectX::Keyboard>();
+        mouse_ = std::make_unique<DirectX::Mouse>();
+    }
 
-	void Input::SetWindow(HWND hwnd)
-	{
-		GetMouse().SetWindow(hwnd);
-	}
+    void Input::SetWindow(HWND hwnd)
+    {
+        GetMouse().SetWindow(hwnd);
+    }
 
 
     bool Input::IsKeyDown(DirectX::Keyboard::Keys key)
@@ -37,8 +37,8 @@ namespace Engine
     bool Input::IsAnyShiftKeyDown()
     {
         return 
-			IsKeyDown(DirectX::Keyboard::LeftShift) ||
-			IsKeyDown(DirectX::Keyboard::RightShift);
+            IsKeyDown(DirectX::Keyboard::LeftShift) ||
+            IsKeyDown(DirectX::Keyboard::RightShift);
     }
 
     bool Input::IsAnyCtrlKeyDown()
@@ -57,7 +57,7 @@ namespace Engine
 
     bool Input::IsLeftMouseButtonDown()
     {
-		return GetMouse().GetState().leftButton;
+        return GetMouse().GetState().leftButton;
     }
 
     bool Input::IsRightMouseButtonDown()
@@ -66,17 +66,17 @@ namespace Engine
     }
 
     bool Input::IsAnyMouseButtonDown()
-	{
-		auto state = GetMouse().GetState();
-		return state.leftButton || state.rightButton || state.middleButton || state.xButton1 || state.xButton2;
-	}
+    {
+        auto state = GetMouse().GetState();
+        return state.leftButton || state.rightButton || state.middleButton || state.xButton1 || state.xButton2;
+    }
 
-	float Input::ConsumeScrollWheelValue()
-	{
-		// Here we assume that 
-		float value = (float)GetMouse().GetState().scrollWheelValue / (float)WHEEL_DELTA;
-		GetMouse().ResetScrollWheelValue();
-		return value;
-	}
+    float Input::ConsumeScrollWheelValue()
+    {
+        // Here we assume that 
+        float value = (float)GetMouse().GetState().scrollWheelValue / (float)WHEEL_DELTA;
+        GetMouse().ResetScrollWheelValue();
+        return value;
+    }
 
 }
