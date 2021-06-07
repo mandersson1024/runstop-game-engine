@@ -4,6 +4,8 @@
 
 This project is for my own enjoyment and education. Anyone who sees this is welcome to have a look, though. If you want to build it you will have to figure out how to link the assimp lib, which is not included because of file size restrictions on GitHub.
 
+The code runs on Windows using DX11. I'm deliberately ignoring portability to be able to spend more time on the core concents of the engine.
+
 ### Overview
 * Language and Platform
   * C++20
