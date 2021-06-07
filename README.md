@@ -17,8 +17,8 @@ The code runs on Windows using DX11. I'm deliberately ignoring portability to be
 * Features
   * Renderer
     * Physically-Based Rendering
-    * Skybox/Radiance/Irradiance
-    * Shadowmap (one direct light source, hard shadows)
+    * Skybox/radiance/irradiance
+    * Shadow map (one direct light source, hard shadows)
   * Resource System
     * Multi-threaded asset loading
     * Asset hot reload in editor
