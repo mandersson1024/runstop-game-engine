@@ -4,31 +4,26 @@
 namespace Engine
 {
 
-    FrameTimer::FrameTimer() : clock_{}
-        , isFirstFrame_(true)
-        , lastFrameTime_(std::chrono::steady_clock::duration::zero())
-        , deltaTimeSeconds_(0)
+    FrameTimer::FrameTimer() 
+        : clock_{}
     {
     }
 
-    float FrameTimer::Tick()
+    void FrameTimer::Tick()
     {
         auto now = std::chrono::high_resolution_clock::now();
 
         if (isFirstFrame_)
         {
-            deltaTimeSeconds_ = 0.f;
             isFirstFrame_ = false;
-            lastFrameTime_ = now;
         }
         else
         {
             auto duration = now - lastFrameTime_;
-            deltaTimeSeconds_ = duration.count() / nanosecondsPerSecond_;
-            lastFrameTime_ = now;
+            deltaTimeSeconds_ = duration.count() / 1e9f;
         }
 
-        return deltaTimeSeconds_;
+        lastFrameTime_ = now;
     }
 
 }

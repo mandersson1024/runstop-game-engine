@@ -138,13 +138,13 @@ namespace Engine {
 
         while (running_)
         {
-            float deltaTime = timer.Tick();
+            timer.Tick();
 
             renderer_->Clear();
 
             for (auto& layer : *layerStack_)
             {
-                layer->OnUpdate(deltaTime);
+                layer->OnUpdate(timer.GetDeltaTime());
             }			
 
             renderer_->Present();
