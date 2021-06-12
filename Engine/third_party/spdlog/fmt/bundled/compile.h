@@ -610,7 +610,7 @@ std::basic_string<Char> format(const CompiledFormat& cf, const Args&... args) {
   using context = buffer_context<Char>;
   detail::buffer<Char>& base = buffer;
   detail::cf::vformat_to<context>(std::back_inserter(base), cf,
-                                  make_format_args<context>(args...));
+                                  fmt::make_format_args<context>(args...));
   return to_string(buffer);
 }
 
@@ -633,7 +633,7 @@ OutputIt format_to(OutputIt out, const CompiledFormat& cf,
   using char_type = typename CompiledFormat::char_type;
   using context = format_context_t<OutputIt, char_type>;
   return detail::cf::vformat_to<context>(out, cf,
-                                         make_format_args<context>(args...));
+      fmt::make_format_args<context>(args...));
 }
 
 template <typename OutputIt, typename S, typename... Args,

@@ -1602,6 +1602,20 @@ class dynamic_format_arg_store
   }
 
   /**
+  \rst
+  Constructs a `~fmt::format_arg_store` object that contains references to
+  arguments and can be implicitly converted to `~fmt::format_args`. `Context`
+  can be omitted in which case it defaults to `~fmt::context`.
+  See `~fmt::arg` for lifetime considerations.
+  \endrst
+ */
+  template <typename Context = format_context, typename... Args>
+  constexpr auto make_format_args(const Args&... args)
+      -> format_arg_store<Context, Args...> {
+      return { args... };
+  }
+
+  /**
     \rst
     Reserves space to store at least *new_cap* arguments including
     *new_cap_named* named arguments.
@@ -1622,7 +1636,7 @@ class dynamic_format_arg_store
   ``vformat``::
 
     void vlog(string_view format_str, format_args args);  // OK
-    format_args args = make_format_args(42);  // Error: dangling reference
+    format_args args = fmt::make_format_args(42);  // Error: dangling reference
   \endrst
  */
 template <typename Context> class basic_format_args {
