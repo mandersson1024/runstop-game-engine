@@ -27,7 +27,7 @@ namespace Engine
 
         auto result = Graphics::GetDevice()->CreateBuffer(&bufferDesc, &subresourceData, &buffer_);
 
-        DX::ThrowIfFailed(result);
+        DX::AssertIfFailed(result);
     }
 
     void VertexBuffer::Bind() const

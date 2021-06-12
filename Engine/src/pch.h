@@ -53,8 +53,11 @@
 #include <dxgidebug.h>
 #endif
 
+#include "Engine/EngineAssert.h"
+
 namespace DX
 {
+    /*
     // Helper class for COM exceptions
     class com_exception : public std::exception
     {
@@ -80,9 +83,14 @@ namespace DX
             throw com_exception(hr);
         }
     }
+    */
+
+    inline void AssertIfFailed(HRESULT result)
+    {
+        ENGINE_ASSERT(!FAILED(result), "");
+    }
 }
 
-#include "Engine/EngineAssert.h"
 #include "Engine/Logger.h"
 #include "Engine/Assets/AssetPaths.h"
 #include "Engine/Application/Application.h"

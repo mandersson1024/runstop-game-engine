@@ -25,7 +25,7 @@ namespace Engine
 			.SysMemSlicePitch = 0, // has no meaning for index buffers
 		};
 
-		DX::ThrowIfFailed(Graphics::GetDevice()->CreateBuffer(&bufferDesc, &subresourceData, &buffer_));
+		DX::AssertIfFailed(Graphics::GetDevice()->CreateBuffer(&bufferDesc, &subresourceData, &buffer_));
 	}
 
 	void IndexBuffer::Bind() const

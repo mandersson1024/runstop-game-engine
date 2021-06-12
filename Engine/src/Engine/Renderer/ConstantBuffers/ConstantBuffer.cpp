@@ -27,7 +27,7 @@ namespace Engine
             .pSysMem = GetData()
         };
 
-        DX::ThrowIfFailed(Graphics::GetDevice()->CreateBuffer(&desc, &subresource, &buffer_));
+        DX::AssertIfFailed(Graphics::GetDevice()->CreateBuffer(&desc, &subresource, &buffer_));
     }
 
     void ConstantBuffer::Bind(uint32_t slot)

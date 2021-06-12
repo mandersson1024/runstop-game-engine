@@ -25,6 +25,7 @@
 
 namespace DirectX
 {
+    /*
     // Helper class for COM exceptions
     class com_exception : public std::exception
     {
@@ -52,6 +53,7 @@ namespace DirectX
             throw com_exception(hr);
         }
     }
+    */
 
 
     // Helper for output debug tracing

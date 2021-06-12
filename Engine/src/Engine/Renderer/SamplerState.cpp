@@ -24,7 +24,7 @@ namespace Engine
             desc.AddressW = D3D11_TEXTURE_ADDRESS_CLAMP;
         }
 
-        DX::ThrowIfFailed(Graphics::GetDevice()->CreateSamplerState(&desc, &state_));
+        DX::AssertIfFailed(Graphics::GetDevice()->CreateSamplerState(&desc, &state_));
     }
 
     void SamplerState::Bind(int slot) const

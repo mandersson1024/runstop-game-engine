@@ -72,9 +72,9 @@ public:
 
         s_keyboard = this;
 
-        ThrowIfFailed(GameInputCreate(mGameInput.GetAddressOf()));
+        AssertIfFailed(GameInputCreate(mGameInput.GetAddressOf()));
 
-        ThrowIfFailed(mGameInput->RegisterDeviceCallback(
+        AssertIfFailed(mGameInput->RegisterDeviceCallback(
             nullptr,
             GameInputKindKeyboard,
             GameInputDeviceConnected,
@@ -375,7 +375,7 @@ public:
 
         ComPtr<IKeyboardCapabilities> caps;
         HRESULT hr = RoActivateInstance(HStringReference(RuntimeClass_Windows_Devices_Input_KeyboardCapabilities).Get(), &caps);
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         INT32 value;
         if (SUCCEEDED(caps->get_KeyboardPresent(&value)))
@@ -404,19 +404,19 @@ public:
 
         typedef __FITypedEventHandler_2_Windows__CUI__CCore__CCoreWindow_Windows__CUI__CCore__CWindowActivatedEventArgs ActivatedHandler;
         HRESULT hr = window->add_Activated(Callback<ActivatedHandler>(Activated).Get(), &mActivatedToken);
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         ComPtr<ICoreDispatcher> dispatcher;
         hr = window->get_Dispatcher(dispatcher.GetAddressOf());
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         ComPtr<ICoreAcceleratorKeys> keys;
         hr = dispatcher.As(&keys);
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         typedef __FITypedEventHandler_2_Windows__CUI__CCore__CCoreDispatcher_Windows__CUI__CCore__CAcceleratorKeyEventArgs AcceleratorKeyHandler;
         hr = keys->add_AcceleratorKeyActivated(Callback<AcceleratorKeyHandler>(AcceleratorKeyEvent).Get(), &mAcceleratorKeyToken);
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
     }
 
     State       mState;
@@ -438,14 +438,14 @@ private:
 
             ComPtr<ICoreDispatcher> dispatcher;
             HRESULT hr = mWindow->get_Dispatcher(dispatcher.GetAddressOf());
-            ThrowIfFailed(hr);
+            AssertIfFailed(hr);
 
             (void)mWindow->remove_Activated(mActivatedToken);
             mActivatedToken.value = 0;
 
             ComPtr<ICoreAcceleratorKeys> keys;
             hr = dispatcher.As(&keys);
-            ThrowIfFailed(hr);
+            AssertIfFailed(hr);
 
             (void)keys->remove_AcceleratorKeyActivated(mAcceleratorKeyToken);
             mAcceleratorKeyToken.value = 0;
@@ -476,7 +476,7 @@ private:
 
         CoreAcceleratorKeyEventType evtType;
         HRESULT hr = args->get_EventType(&evtType);
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         bool down = false;
 
@@ -497,11 +497,11 @@ private:
 
         CorePhysicalKeyStatus status;
         hr = args->get_KeyStatus(&status);
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         VirtualKey virtualKey;
         hr = args->get_VirtualKey(&virtualKey);
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         int vk = static_cast<int>(virtualKey);
 

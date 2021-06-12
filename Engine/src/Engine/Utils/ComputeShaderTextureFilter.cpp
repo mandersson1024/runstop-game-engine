@@ -42,7 +42,7 @@ namespace Engine
             desc.CPUAccessFlags = 0;
             desc.MiscFlags = D3D11_RESOURCE_MISC_TEXTURECUBE;
 
-            DX::ThrowIfFailed(Graphics::GetDevice()->CreateTexture2D(&desc, NULL, &texture));
+            DX::AssertIfFailed(Graphics::GetDevice()->CreateTexture2D(&desc, NULL, &texture));
         }
 
         {
@@ -55,7 +55,7 @@ namespace Engine
             desc.ViewDimension = D3D11_UAV_DIMENSION_TEXTURE2DARRAY;
             desc.Texture2DArray.ArraySize = 6;
             
-            DX::ThrowIfFailed(Graphics::GetDevice()->CreateUnorderedAccessView(texture.Get(), &desc, &uav));
+            DX::AssertIfFailed(Graphics::GetDevice()->CreateUnorderedAccessView(texture.Get(), &desc, &uav));
         }
 
         {

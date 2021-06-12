@@ -28,7 +28,7 @@ namespace Engine
         blendDesc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
         blendDesc.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;
 
-        DX::ThrowIfFailed(Graphics::GetDevice()->CreateBlendState(&blendDesc, &blendState_));
+        DX::AssertIfFailed(Graphics::GetDevice()->CreateBlendState(&blendDesc, &blendState_));
     }
 
     void BlendState::Bind() const

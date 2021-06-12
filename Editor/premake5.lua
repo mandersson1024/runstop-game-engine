@@ -4,7 +4,8 @@ project "Editor"
 	cppdialect "C++20"
 	floatingpoint "fast"
 	staticruntime "off"
-	characterset ("ASCII")
+	exceptionhandling "off"
+	characterset "ASCII"
 
 	targetdir (outputdir .. "/bin/%{prj.name}")
 	objdir (outputdir .. "/obj/%{prj.name}")
@@ -36,13 +37,15 @@ project "Editor"
 		"xcopy \"%{wks.location}/Engine/assets\" \"%{cfg.targetdir}/assets\" /siy",
 	}
 
+	defines { "WIN32", "SPDLOG_NO_EXCEPTIONS" }
+
 	filter "system:windows"
 		systemversion "latest"
 
 	filter "configurations:Debug"
 		runtime "Debug"
 		symbols "on"
-		defines { "WIN32", "_DEBUG", "_WINDOWS", "ENGINE_DEBUG", "EDITOR" }
+		defines { "_DEBUG", "_WINDOWS", "ENGINE_DEBUG", "EDITOR" }
 		linkoptions { "-IGNORE:4099" } -- assimp link warning
 		links
 		{
@@ -59,7 +62,7 @@ project "Editor"
 	filter "configurations:Single-Thread Debug"
 		runtime "Debug"
 		symbols "on"
-		defines { "WIN32", "_DEBUG", "_WINDOWS", "ENGINE_DEBUG", "ENGINE_SINGLE_THREAD", "EDITOR" }
+		defines { "_DEBUG", "_WINDOWS", "ENGINE_DEBUG", "ENGINE_SINGLE_THREAD", "EDITOR" }
 		linkoptions { "-IGNORE:4099" } -- assimp link warning
 		links
 		{
@@ -76,7 +79,7 @@ project "Editor"
 	filter "configurations:Release"
 		runtime "Release"
 		optimize "on"
-		defines { "WIN32", "NDEBUG", "_WINDOWS", "ENGINE_RELEASE", "EDITOR" }
+		defines { "NDEBUG", "_WINDOWS", "ENGINE_RELEASE", "EDITOR" }
 		links
 		{
 			"d3d11",

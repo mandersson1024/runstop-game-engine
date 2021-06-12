@@ -218,7 +218,7 @@ void DeviceResources::CreateDeviceResources()
     }
 #endif
 
-    ThrowIfFailed(hr);
+    AssertIfFailed(hr);
 
 #ifndef NDEBUG
     ComPtr<ID3D11Debug> d3dDebug;
@@ -243,9 +243,9 @@ void DeviceResources::CreateDeviceResources()
     }
 #endif
 
-    ThrowIfFailed(device.As(&m_d3dDevice));
-    ThrowIfFailed(context.As(&m_d3dContext));
-    ThrowIfFailed(context.As(&m_d3dAnnotation));
+    AssertIfFailed(device.As(&m_d3dDevice));
+    AssertIfFailed(context.As(&m_d3dContext));
+    AssertIfFailed(context.As(&m_d3dAnnotation));
 }
 
 // These resources need to be recreated every time the window size is changed.
@@ -298,7 +298,7 @@ void DeviceResources::CreateWindowSizeDependentResources()
         }
         else
         {
-            ThrowIfFailed(hr);
+            AssertIfFailed(hr);
         }
     }
     else
@@ -321,7 +321,7 @@ void DeviceResources::CreateWindowSizeDependentResources()
         fsSwapChainDesc.Windowed = TRUE;
 
         // Create a SwapChain from a Win32 window.
-        ThrowIfFailed(m_dxgiFactory->CreateSwapChainForHwnd(
+        AssertIfFailed(m_dxgiFactory->CreateSwapChainForHwnd(
             m_d3dDevice.Get(),
             m_window,
             &swapChainDesc,
@@ -330,17 +330,17 @@ void DeviceResources::CreateWindowSizeDependentResources()
         ));
 
         // This class does not support exclusive full-screen mode and prevents DXGI from responding to the ALT+ENTER shortcut
-        ThrowIfFailed(m_dxgiFactory->MakeWindowAssociation(m_window, DXGI_MWA_NO_ALT_ENTER));
+        AssertIfFailed(m_dxgiFactory->MakeWindowAssociation(m_window, DXGI_MWA_NO_ALT_ENTER));
     }
 
     // Handle color space settings for HDR
     UpdateColorSpace();
 
     // Create a render target view of the swap chain back buffer.
-    ThrowIfFailed(m_swapChain->GetBuffer(0, IID_PPV_ARGS(m_renderTarget.ReleaseAndGetAddressOf())));
+    AssertIfFailed(m_swapChain->GetBuffer(0, IID_PPV_ARGS(m_renderTarget.ReleaseAndGetAddressOf())));
 
     CD3D11_RENDER_TARGET_VIEW_DESC renderTargetViewDesc(D3D11_RTV_DIMENSION_TEXTURE2D, m_backBufferFormat);
-    ThrowIfFailed(m_d3dDevice->CreateRenderTargetView(
+    AssertIfFailed(m_d3dDevice->CreateRenderTargetView(
         m_renderTarget.Get(),
         &renderTargetViewDesc,
         m_d3dRenderTargetView.ReleaseAndGetAddressOf()
@@ -358,14 +358,14 @@ void DeviceResources::CreateWindowSizeDependentResources()
             D3D11_BIND_DEPTH_STENCIL
         );
 
-        ThrowIfFailed(m_d3dDevice->CreateTexture2D(
+        AssertIfFailed(m_d3dDevice->CreateTexture2D(
             &depthStencilDesc,
             nullptr,
             m_depthStencil.ReleaseAndGetAddressOf()
         ));
 
         CD3D11_DEPTH_STENCIL_VIEW_DESC depthStencilViewDesc(D3D11_DSV_DIMENSION_TEXTURE2D);
-        ThrowIfFailed(m_d3dDevice->CreateDepthStencilView(
+        AssertIfFailed(m_d3dDevice->CreateDepthStencilView(
             m_depthStencil.Get(),
             &depthStencilViewDesc,
             m_d3dDepthStencilView.ReleaseAndGetAddressOf()
@@ -491,7 +491,7 @@ void DeviceResources::Present()
     }
     else
     {
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         if (!m_dxgiFactory->IsCurrent())
         {
@@ -511,7 +511,7 @@ void DeviceResources::CreateFactory()
         {
             debugDXGI = true;
 
-            ThrowIfFailed(CreateDXGIFactory2(DXGI_CREATE_FACTORY_DEBUG, IID_PPV_ARGS(m_dxgiFactory.ReleaseAndGetAddressOf())));
+            AssertIfFailed(CreateDXGIFactory2(DXGI_CREATE_FACTORY_DEBUG, IID_PPV_ARGS(m_dxgiFactory.ReleaseAndGetAddressOf())));
 
             dxgiInfoQueue->SetBreakOnSeverity(DXGI_DEBUG_ALL, DXGI_INFO_QUEUE_MESSAGE_SEVERITY_ERROR, true);
             dxgiInfoQueue->SetBreakOnSeverity(DXGI_DEBUG_ALL, DXGI_INFO_QUEUE_MESSAGE_SEVERITY_CORRUPTION, true);
@@ -530,7 +530,7 @@ void DeviceResources::CreateFactory()
     if (!debugDXGI)
 #endif
 
-        ThrowIfFailed(CreateDXGIFactory1(IID_PPV_ARGS(m_dxgiFactory.ReleaseAndGetAddressOf())));
+        AssertIfFailed(CreateDXGIFactory1(IID_PPV_ARGS(m_dxgiFactory.ReleaseAndGetAddressOf())));
 }
 
 // This method acquires the first available hardware adapter.
@@ -554,7 +554,7 @@ void DeviceResources::GetHardwareAdapter(IDXGIAdapter1** ppAdapter)
             adapterIndex++)
         {
             DXGI_ADAPTER_DESC1 desc;
-            ThrowIfFailed(adapter->GetDesc1(&desc));
+            AssertIfFailed(adapter->GetDesc1(&desc));
 
             if (desc.Flags & DXGI_ADAPTER_FLAG_SOFTWARE)
             {
@@ -581,7 +581,7 @@ void DeviceResources::GetHardwareAdapter(IDXGIAdapter1** ppAdapter)
             adapterIndex++)
         {
             DXGI_ADAPTER_DESC1 desc;
-            ThrowIfFailed(adapter->GetDesc1(&desc));
+            AssertIfFailed(adapter->GetDesc1(&desc));
 
             if (desc.Flags & DXGI_ADAPTER_FLAG_SOFTWARE)
             {
@@ -619,7 +619,7 @@ void DeviceResources::UpdateColorSpace()
             if (SUCCEEDED(output.As(&output6)))
             {
                 DXGI_OUTPUT_DESC1 desc;
-                ThrowIfFailed(output6->GetDesc1(&desc));
+                AssertIfFailed(output6->GetDesc1(&desc));
 
                 if (desc.ColorSpace == DXGI_COLOR_SPACE_RGB_FULL_G2084_NONE_P2020)
                 {
@@ -659,7 +659,7 @@ void DeviceResources::UpdateColorSpace()
         if (SUCCEEDED(swapChain3->CheckColorSpaceSupport(colorSpace, &colorSpaceSupport))
             && (colorSpaceSupport & DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_PRESENT))
         {
-            ThrowIfFailed(swapChain3->SetColorSpace1(colorSpace));
+            AssertIfFailed(swapChain3->SetColorSpace1(colorSpace));
         }
     }
 }

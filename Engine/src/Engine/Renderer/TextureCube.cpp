@@ -34,7 +34,7 @@ namespace Engine {
             textureDesc_.CPUAccessFlags = 0;
             textureDesc_.MiscFlags = D3D11_RESOURCE_MISC_TEXTURECUBE;
 
-            DX::ThrowIfFailed(Graphics::GetDevice()->CreateTexture2D(&textureDesc_, NULL, &texture_));
+            DX::AssertIfFailed(Graphics::GetDevice()->CreateTexture2D(&textureDesc_, NULL, &texture_));
         }
 
         {
@@ -80,7 +80,7 @@ namespace Engine {
             desc.TextureCube.MipLevels = 1;
             desc.TextureCube.MostDetailedMip = 0;
 
-            DX::ThrowIfFailed(Graphics::GetDevice()->CreateShaderResourceView(texture_.Get(), &desc, &resourceView_));
+            DX::AssertIfFailed(Graphics::GetDevice()->CreateShaderResourceView(texture_.Get(), &desc, &resourceView_));
         }
     }
 
@@ -101,7 +101,7 @@ namespace Engine {
             desc.TextureCube.MipLevels = 1;
             desc.TextureCube.MostDetailedMip = 0;
 
-            DX::ThrowIfFailed(Graphics::GetDevice()->CreateShaderResourceView(texture_.Get(), &desc, &resourceView_));
+            DX::AssertIfFailed(Graphics::GetDevice()->CreateShaderResourceView(texture_.Get(), &desc, &resourceView_));
         }
     }
 
@@ -111,8 +111,8 @@ namespace Engine {
         {
             Microsoft::WRL::ComPtr<ID3D11Resource> resource;
             const std::wstring wfilepath = StringToWString(filepath.generic_string());
-            WITH_GUARDED_GRAPHICS_CONTEXT(DX::ThrowIfFailed(DirectX::CreateDDSTextureFromFile(Graphics::GetDevice(), Graphics::GetContext(), wfilepath.c_str(), &resource, &resourceView_)));
-            DX::ThrowIfFailed(resource->QueryInterface(IID_ID3D11Texture2D, (void**)&texture_));
+            WITH_GUARDED_GRAPHICS_CONTEXT(DX::AssertIfFailed(DirectX::CreateDDSTextureFromFile(Graphics::GetDevice(), Graphics::GetContext(), wfilepath.c_str(), &resource, &resourceView_)));
+            DX::AssertIfFailed(resource->QueryInterface(IID_ID3D11Texture2D, (void**)&texture_));
 
             texture_->GetDesc(&textureDesc_);
         }

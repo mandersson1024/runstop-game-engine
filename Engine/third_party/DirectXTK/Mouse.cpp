@@ -72,9 +72,9 @@ public:
 
         s_mouse = this;
 
-        ThrowIfFailed(GameInputCreate(mGameInput.GetAddressOf()));
+        AssertIfFailed(GameInputCreate(mGameInput.GetAddressOf()));
 
-        ThrowIfFailed(mGameInput->RegisterDeviceCallback(
+        AssertIfFailed(mGameInput->RegisterDeviceCallback(
             nullptr,
             GameInputKindMouse,
             GameInputDeviceConnected,
@@ -1032,19 +1032,19 @@ public:
 
         ComPtr<ICoreWindowStatic> statics;
         HRESULT hr = GetActivationFactory(HStringReference(RuntimeClass_Windows_UI_Core_CoreWindow).Get(), statics.GetAddressOf());
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         ComPtr<ICoreWindow> window;
         hr = statics->GetForCurrentThread(window.GetAddressOf());
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         if (mode == MODE_RELATIVE)
         {
             hr = window->get_PointerCursor(mCursor.ReleaseAndGetAddressOf());
-            ThrowIfFailed(hr);
+            AssertIfFailed(hr);
 
             hr = window->put_PointerCursor(nullptr);
-            ThrowIfFailed(hr);
+            AssertIfFailed(hr);
 
             SetEvent(mRelativeRead.get());
 
@@ -1056,14 +1056,14 @@ public:
             {
                 ComPtr<ICoreCursorFactory> factory;
                 hr = GetActivationFactory(HStringReference(RuntimeClass_Windows_UI_Core_CoreCursor).Get(), factory.GetAddressOf());
-                ThrowIfFailed(hr);
+                AssertIfFailed(hr);
 
                 hr = factory->CreateCursor(CoreCursorType_Arrow, 0, mCursor.GetAddressOf());
-                ThrowIfFailed(hr);
+                AssertIfFailed(hr);
             }
 
             hr = window->put_PointerCursor(mCursor.Get());
-            ThrowIfFailed(hr);
+            AssertIfFailed(hr);
 
             mCursor.Reset();
 
@@ -1080,7 +1080,7 @@ public:
 
         ComPtr<IMouseCapabilities> caps;
         HRESULT hr = RoActivateInstance(HStringReference(RuntimeClass_Windows_Devices_Input_MouseCapabilities).Get(), &caps);
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         INT32 value;
         if (SUCCEEDED(caps->get_MousePresent(&value)))
@@ -1118,19 +1118,19 @@ public:
             {
                 ComPtr<ICoreCursorFactory> factory;
                 HRESULT hr = GetActivationFactory(HStringReference(RuntimeClass_Windows_UI_Core_CoreCursor).Get(), factory.GetAddressOf());
-                ThrowIfFailed(hr);
+                AssertIfFailed(hr);
 
                 hr = factory->CreateCursor(CoreCursorType_Arrow, 0, mCursor.GetAddressOf());
-                ThrowIfFailed(hr);
+                AssertIfFailed(hr);
             }
 
             HRESULT hr = mWindow->put_PointerCursor(mCursor.Get());
-            ThrowIfFailed(hr);
+            AssertIfFailed(hr);
         }
         else
         {
             HRESULT hr = mWindow->put_PointerCursor(nullptr);
-            ThrowIfFailed(hr);
+            AssertIfFailed(hr);
         }
     }
 
@@ -1157,29 +1157,29 @@ public:
 
         ComPtr<IMouseDeviceStatics> mouseStatics;
         HRESULT hr = GetActivationFactory(HStringReference(RuntimeClass_Windows_Devices_Input_MouseDevice).Get(), mouseStatics.GetAddressOf());
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         hr = mouseStatics->GetForCurrentView(mMouse.ReleaseAndGetAddressOf());
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         typedef __FITypedEventHandler_2_Windows__CDevices__CInput__CMouseDevice_Windows__CDevices__CInput__CMouseEventArgs MouseMovedHandler;
         hr = mMouse->add_MouseMoved(Callback<MouseMovedHandler>(MouseMovedEvent).Get(), &mPointerMouseMovedToken);
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         typedef __FITypedEventHandler_2_Windows__CUI__CCore__CCoreWindow_Windows__CUI__CCore__CPointerEventArgs PointerHandler;
         auto cb = Callback<PointerHandler>(PointerEvent);
 
         hr = window->add_PointerPressed(cb.Get(), &mPointerPressedToken);
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         hr = window->add_PointerReleased(cb.Get(), &mPointerReleasedToken);
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         hr = window->add_PointerMoved(cb.Get(), &mPointerMovedToken);
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         hr = window->add_PointerWheelChanged(Callback<PointerHandler>(PointerWheel).Get(), &mPointerWheelToken);
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
     }
 
     State           mState;
@@ -1239,41 +1239,41 @@ private:
 
         ComPtr<IPointerPoint> currentPoint;
         HRESULT hr = args->get_CurrentPoint(currentPoint.GetAddressOf());
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         ComPtr<IPointerDevice> pointerDevice;
         hr = currentPoint->get_PointerDevice(pointerDevice.GetAddressOf());
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         PointerDeviceType devType;
         hr = pointerDevice->get_PointerDeviceType(&devType);
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         if (devType == PointerDeviceType::PointerDeviceType_Mouse)
         {
             ComPtr<IPointerPointProperties> props;
             hr = currentPoint->get_Properties(props.GetAddressOf());
-            ThrowIfFailed(hr);
+            AssertIfFailed(hr);
 
             boolean value;
             hr = props->get_IsLeftButtonPressed(&value);
-            ThrowIfFailed(hr);
+            AssertIfFailed(hr);
             s_mouse->mState.leftButton = value != 0;
 
             hr = props->get_IsRightButtonPressed(&value);
-            ThrowIfFailed(hr);
+            AssertIfFailed(hr);
             s_mouse->mState.rightButton = value != 0;
 
             hr = props->get_IsMiddleButtonPressed(&value);
-            ThrowIfFailed(hr);
+            AssertIfFailed(hr);
             s_mouse->mState.middleButton = value != 0;
 
             hr = props->get_IsXButton1Pressed(&value);
-            ThrowIfFailed(hr);
+            AssertIfFailed(hr);
             s_mouse->mState.xButton1 = value != 0;
 
             hr = props->get_IsXButton2Pressed(&value);
-            ThrowIfFailed(hr);
+            AssertIfFailed(hr);
             s_mouse->mState.xButton2 = value != 0;
         }
 
@@ -1281,7 +1281,7 @@ private:
         {
             Point pos;
             hr = currentPoint->get_Position(&pos);
-            ThrowIfFailed(hr);
+            AssertIfFailed(hr);
 
             float dpi = s_mouse->mDPI;
 
@@ -1303,25 +1303,25 @@ private:
 
         ComPtr<IPointerPoint> currentPoint;
         HRESULT hr = args->get_CurrentPoint(currentPoint.GetAddressOf());
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         ComPtr<IPointerDevice> pointerDevice;
         hr = currentPoint->get_PointerDevice(pointerDevice.GetAddressOf());
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         PointerDeviceType devType;
         hr = pointerDevice->get_PointerDeviceType(&devType);
-        ThrowIfFailed(hr);
+        AssertIfFailed(hr);
 
         if (devType == PointerDeviceType::PointerDeviceType_Mouse)
         {
             ComPtr<IPointerPointProperties> props;
             hr = currentPoint->get_Properties(props.GetAddressOf());
-            ThrowIfFailed(hr);
+            AssertIfFailed(hr);
 
             INT32 value;
             hr = props->get_MouseWheelDelta(&value);
-            ThrowIfFailed(hr);
+            AssertIfFailed(hr);
 
             HANDLE evt = s_mouse->mScrollWheelValue.get();
             if (WaitForSingleObjectEx(evt, 0, FALSE) == WAIT_OBJECT_0)
@@ -1336,7 +1336,7 @@ private:
             {
                 Point pos;
                 hr = currentPoint->get_Position(&pos);
-                ThrowIfFailed(hr);
+                AssertIfFailed(hr);
 
                 float dpi = s_mouse->mDPI;
 
@@ -1359,7 +1359,7 @@ private:
         {
             MouseDelta delta;
             HRESULT hr = args->get_MouseDelta(&delta);
-            ThrowIfFailed(hr);
+            AssertIfFailed(hr);
 
             s_mouse->mState.x = delta.X;
             s_mouse->mState.y = delta.Y;

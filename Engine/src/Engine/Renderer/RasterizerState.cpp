@@ -19,7 +19,7 @@ namespace Engine
         desc.MultisampleEnable = true; // Documentation recommends 'true' always 
         desc.AntialiasedLineEnable = true; // Documentation recommends 'true' always
 
-        DX::ThrowIfFailed(Graphics::GetDevice()->CreateRasterizerState(&desc, &state_));
+        DX::AssertIfFailed(Graphics::GetDevice()->CreateRasterizerState(&desc, &state_));
     }
 
     void RasterizerState::Bind() const

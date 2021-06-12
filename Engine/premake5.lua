@@ -4,7 +4,8 @@ project "Engine"
 	cppdialect "C++20"
 	floatingpoint "fast"
 	staticruntime "off"
-	characterset ("ASCII")
+	exceptionhandling "off"
+	characterset "ASCII"
 
 	targetdir (outputdir .. "/bin/%{prj.name}")
 	objdir (outputdir .. "/obj/%{prj.name}")
@@ -40,6 +41,8 @@ project "Engine"
 	{
 	}
 
+	defines { "WIN32", "SPDLOG_NO_EXCEPTIONS" }
+
 	filter "files:src/**.ixx"
 		flags { "NoPCH" }
 
@@ -50,17 +53,17 @@ project "Engine"
 		systemversion "latest"
 
 	filter "configurations:Debug"
-		defines { "WIN32", "_DEBUG", "_WINDOWS", "ENGINE_DEBUG" }
+		defines { "_DEBUG", "_WINDOWS", "ENGINE_DEBUG" }
 		runtime "Debug"
 		symbols "on"
 
 	filter "configurations:Single-Thread Debug"
-		defines { "WIN32", "_DEBUG", "_WINDOWS", "ENGINE_DEBUG", "ENGINE_SINGLE_THREAD" }
+		defines { "_DEBUG", "_WINDOWS", "ENGINE_DEBUG", "ENGINE_SINGLE_THREAD" }
 		runtime "Debug"
 		symbols "on"
 
 	filter "configurations:Release"
-		defines { "WIN32", "NDEBUG", "_WINDOWS", "ENGINE_RELEASE" }
+		defines { "NDEBUG", "_WINDOWS", "ENGINE_RELEASE" }
 		runtime "Release"
 		optimize "on"
 

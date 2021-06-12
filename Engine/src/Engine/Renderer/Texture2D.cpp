@@ -38,7 +38,7 @@ namespace Engine
         desc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
         desc.Texture2D.MostDetailedMip = 0;
         desc.Texture2D.MipLevels = 1;
-        DX::ThrowIfFailed(Graphics::GetDevice()->CreateShaderResourceView(t->texture_.Get(), &desc, &t->resourceView_));
+        DX::AssertIfFailed(Graphics::GetDevice()->CreateShaderResourceView(t->texture_.Get(), &desc, &t->resourceView_));
 
         return t;
     }
@@ -86,7 +86,7 @@ namespace Engine
             desc.CPUAccessFlags = 0;
             desc.MiscFlags = mipmap ? D3D11_RESOURCE_MISC_GENERATE_MIPS : 0;
 
-            DX::ThrowIfFailed(device->CreateTexture2D(&desc, NULL, &texture_));
+            DX::AssertIfFailed(device->CreateTexture2D(&desc, NULL, &texture_));
         }
 
         WITH_GUARDED_GRAPHICS_CONTEXT(Graphics::GetContext()->UpdateSubresource(texture_.Get(), 0, NULL, data, rowPitch, 0));
@@ -98,7 +98,7 @@ namespace Engine
             desc.Texture2D.MostDetailedMip = 0;
             desc.Texture2D.MipLevels = -1;
 
-            DX::ThrowIfFailed(device->CreateShaderResourceView(texture_.Get(), &desc, &resourceView_));            
+            DX::AssertIfFailed(device->CreateShaderResourceView(texture_.Get(), &desc, &resourceView_));            
         }
 
         if (mipmap)

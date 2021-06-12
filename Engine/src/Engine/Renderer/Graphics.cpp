@@ -29,16 +29,16 @@ namespace Engine
     
     void Graphics::Setup()
     {
-        DX::ThrowIfFailed(CreateDXGIFactory1(IID_PPV_ARGS(dxgiFactory_.ReleaseAndGetAddressOf())));
+        DX::AssertIfFailed(CreateDXGIFactory1(IID_PPV_ARGS(dxgiFactory_.ReleaseAndGetAddressOf())));
         Microsoft::WRL::ComPtr<IDXGIFactory6> factory6;
-        DX::ThrowIfFailed(dxgiFactory_.As(&factory6));
+        DX::AssertIfFailed(dxgiFactory_.As(&factory6));
 
         Microsoft::WRL::ComPtr<IDXGIAdapter1> adapter;
         uint32_t adapterIndex = 0;
-        DX::ThrowIfFailed(factory6->EnumAdapterByGpuPreference(adapterIndex, DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE, IID_PPV_ARGS(adapter.ReleaseAndGetAddressOf())));
+        DX::AssertIfFailed(factory6->EnumAdapterByGpuPreference(adapterIndex, DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE, IID_PPV_ARGS(adapter.ReleaseAndGetAddressOf())));
 
         DXGI_ADAPTER_DESC1 adapterDesc;
-        DX::ThrowIfFailed(adapter->GetDesc1(&adapterDesc));
+        DX::AssertIfFailed(adapter->GetDesc1(&adapterDesc));
         ENGINE_ASSERT((adapterDesc.Flags & DXGI_ADAPTER_FLAG_SOFTWARE) == 0, "This is a software adapter");
 
 #ifdef _DEBUG
@@ -58,7 +58,7 @@ namespace Engine
 
         WITH_GUARDED_GRAPHICS_CONTEXT
         (
-            DX::ThrowIfFailed(D3D11CreateDevice(
+            DX::AssertIfFailed(D3D11CreateDevice(
                 adapter.Get(),
                 D3D_DRIVER_TYPE_UNKNOWN,
                 NULL,
@@ -94,12 +94,12 @@ namespace Engine
         }
 #endif
 
-        DX::ThrowIfFailed(device.As(&device_));
+        DX::AssertIfFailed(device.As(&device_));
 
         WITH_GUARDED_GRAPHICS_CONTEXT
         (
-            DX::ThrowIfFailed(context.As(&context_));
-            DX::ThrowIfFailed(context.As(&annotation_));
+            DX::AssertIfFailed(context.As(&context_));
+            DX::AssertIfFailed(context.As(&annotation_));
         );
     }
 
@@ -304,7 +304,7 @@ namespace Engine
         fsSwapChainDesc.Windowed = TRUE;
 
         // Create a SwapChain from a Win32 window.
-        DX::ThrowIfFailed(dxgiFactory_->CreateSwapChainForHwnd(
+        DX::AssertIfFailed(dxgiFactory_->CreateSwapChainForHwnd(
             device_.Get(),
             hwnd_,
             &swapChainDesc,
@@ -316,14 +316,14 @@ namespace Engine
 
     void Graphics::CreateRenderTarget()
     {
-        DX::ThrowIfFailed(swapChain_->GetBuffer(0, IID_PPV_ARGS(renderTarget_.ReleaseAndGetAddressOf())));
+        DX::AssertIfFailed(swapChain_->GetBuffer(0, IID_PPV_ARGS(renderTarget_.ReleaseAndGetAddressOf())));
     }
 
     void Graphics::CreateRenderTargetView()
     {
         CD3D11_RENDER_TARGET_VIEW_DESC renderTargetViewDesc(D3D11_RTV_DIMENSION_TEXTURE2D, GetBackBufferFormat());
 
-        DX::ThrowIfFailed(device_->CreateRenderTargetView(
+        DX::AssertIfFailed(device_->CreateRenderTargetView(
             renderTarget_.Get(),
             &renderTargetViewDesc,
             renderTargetView_.ReleaseAndGetAddressOf()));
@@ -340,7 +340,7 @@ namespace Engine
             1, // Use a single mipmap level.
             D3D11_BIND_DEPTH_STENCIL);
 
-        DX::ThrowIfFailed(device_->CreateTexture2D(
+        DX::AssertIfFailed(device_->CreateTexture2D(
             &depthStencilDesc,
             nullptr,
             depthStencil_.ReleaseAndGetAddressOf()));
@@ -349,7 +349,7 @@ namespace Engine
     void Graphics::CreateDepthStencilView()
     {
         CD3D11_DEPTH_STENCIL_VIEW_DESC depthStencilViewDesc(D3D11_DSV_DIMENSION_TEXTURE2D);
-        DX::ThrowIfFailed(device_->CreateDepthStencilView(
+        DX::AssertIfFailed(device_->CreateDepthStencilView(
             depthStencil_.Get(),
             &depthStencilViewDesc,
             depthStencilView_.ReleaseAndGetAddressOf()));
@@ -378,7 +378,7 @@ namespace Engine
             0,
             settings_.antiAliasingSampleCount);
 
-        DX::ThrowIfFailed(device_->CreateTexture2D(
+        DX::AssertIfFailed(device_->CreateTexture2D(
             &desc,
             nullptr,
             msaaRenderTarget_.ReleaseAndGetAddressOf()));
@@ -388,7 +388,7 @@ namespace Engine
     {
         CD3D11_RENDER_TARGET_VIEW_DESC desc(D3D11_RTV_DIMENSION_TEXTURE2DMS, GetBackBufferFormat());
 
-        DX::ThrowIfFailed(device_->CreateRenderTargetView(
+        DX::AssertIfFailed(device_->CreateRenderTargetView(
             msaaRenderTarget_.Get(),
             &desc,
             msaaRenderTargetView_.ReleaseAndGetAddressOf()
@@ -411,13 +411,13 @@ namespace Engine
         );
 
         Microsoft::WRL::ComPtr<ID3D11Texture2D> depthStencil;
-        DX::ThrowIfFailed(device_->CreateTexture2D(
+        DX::AssertIfFailed(device_->CreateTexture2D(
             &desc,
             nullptr,
             depthStencil.GetAddressOf()
         ));
 
-        DX::ThrowIfFailed(device_->CreateDepthStencilView(
+        DX::AssertIfFailed(device_->CreateDepthStencilView(
             depthStencil.Get(),
             nullptr,
             msaaDepthStencilView_.ReleaseAndGetAddressOf()
@@ -441,7 +441,7 @@ namespace Engine
         desc.SampleDesc.Quality = 0;
         desc.Usage = D3D11_USAGE_DEFAULT;
 
-        DX::ThrowIfFailed(device_->CreateTexture2D(
+        DX::AssertIfFailed(device_->CreateTexture2D(
             &desc,
             nullptr,
             shadowMapRenderTarget_.ReleaseAndGetAddressOf()));
@@ -456,7 +456,7 @@ namespace Engine
         desc.Texture2D.MipSlice = 0;
         desc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
 
-        DX::ThrowIfFailed(device_->CreateDepthStencilView(
+        DX::AssertIfFailed(device_->CreateDepthStencilView(
             shadowMapRenderTarget_.Get(), 
             &desc, 
             shadowMapDepthStencilView_.ReleaseAndGetAddressOf()));
@@ -471,7 +471,7 @@ namespace Engine
         desc.Texture2D.MipLevels = 1;
         desc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
 
-        DX::ThrowIfFailed(device_->CreateShaderResourceView(
+        DX::AssertIfFailed(device_->CreateShaderResourceView(
             shadowMapRenderTarget_.Get(), 
             &desc, 
             shadowMapShaderResourceView_.ReleaseAndGetAddressOf()));
