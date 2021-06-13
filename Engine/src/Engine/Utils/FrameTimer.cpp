@@ -11,7 +11,7 @@ namespace Engine
 
     void FrameTimer::Tick()
     {
-        auto now = std::chrono::high_resolution_clock::now();
+        const auto now = std::chrono::high_resolution_clock::now();
 
         if (isFirstFrame_)
         {
@@ -19,8 +19,8 @@ namespace Engine
         }
         else
         {
-            auto duration = now - lastFrameTime_;
-            deltaTimeSeconds_ = duration.count() / 1e9f;
+            const auto duration = now - lastFrameTime_;
+            deltaTimeSeconds_ = duration.count() * 1e-9f;
         }
 
         lastFrameTime_ = now;
