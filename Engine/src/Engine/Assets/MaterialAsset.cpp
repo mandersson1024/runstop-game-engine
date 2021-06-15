@@ -14,7 +14,7 @@ namespace Engine
 
     void MaterialAsset::LoadSync()
     {
-        TimeLog timer(fmt::format("Loading '{}'", filepath_.generic_string()));
+        TimeLog timer(std::format("Loading '{}'", filepath_.generic_string()));
 
         auto json = Json::Load(GetAssetsFolderPath() / filepath_);
         timestamp_->Stamp();
@@ -60,7 +60,7 @@ namespace Engine
 
     void MaterialAsset::Save()
     {
-        TimeLog timer(fmt::format("Saving material '{}'", filepath_.generic_string()));
+        TimeLog timer(std::format("Saving material '{}'", filepath_.generic_string()));
 
         std::array<float, 4> basecolorTint
         {

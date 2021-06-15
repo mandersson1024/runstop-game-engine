@@ -43,7 +43,7 @@ namespace Engine
             moduleHandle_,
             nullptr);
 
-        ENGINE_ASSERT(hwnd_ != NULL, fmt::format("Error creating window (error code: {})", GetLastError()));
+        ENGINE_ASSERT(hwnd_, std::format("Error creating window (error code: {})", GetLastError()));
 
         ShowWindow(hwnd_, nCmdShow); // TODO: Change to SW_SHOWMAXIMIZED to default to fullscreen.
         //UpdateWindow(m_hwnd);
@@ -70,7 +70,7 @@ namespace Engine
         };
 
         ATOM result = RegisterClassEx(&wcex);
-        ENGINE_ASSERT(result != 0, fmt::format("Could not register class (error code: {})", GetLastError()));
+        ENGINE_ASSERT(result != 0, std::format("Could not register class (error code: {})", GetLastError()));
     }
 
     void NativeWindow::UnregisterClass()

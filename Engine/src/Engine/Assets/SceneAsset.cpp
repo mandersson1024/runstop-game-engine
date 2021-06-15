@@ -19,10 +19,10 @@ namespace Engine
     void SceneAsset::LoadSync()
     {
         ENGINE_LOG("Loading scene '{}'", filepath_.generic_string());
-        TimeLog timer(fmt::format("Loaded scene {}", filepath_.generic_string()));
+        TimeLog timer(std::format("Loaded scene {}", filepath_.generic_string()));
 
         const auto& path = GetAssetsFolderPath() / filepath_;
-        ENGINE_ASSERT(std::filesystem::exists(path), fmt::format("File '{}' not found", path.generic_string()));
+        ENGINE_ASSERT(std::filesystem::exists(path), std::format("File '{}' not found", path.generic_string()));
         nlohmann::ordered_json json = Json::Load(path);
         scene_ = Deserialize(json);
     }

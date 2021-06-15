@@ -75,7 +75,7 @@ namespace Engine
 #define ENGINE_LOG_ERROR(...) ::Engine::Logger::Error(__VA_ARGS__)
 
 #define __FILENAME__ (strrchr(__FILE__, '\\') ? strrchr(__FILE__, '\\') + 1 : __FILE__)
-#define ENGINE_LOG_DEBUG(...) ::Engine::Logger::Debug("[{}:{}, {}] {}", __FILENAME__, __LINE__, __FUNCTION__, fmt::format(__VA_ARGS__))
-#define ENGINE_LOG_DEBUG_WARNING(...) ::Engine::Logger::Warn("[{}:{}, {}] {}", __FILENAME__, __LINE__, __FUNCTION__, fmt::format(__VA_ARGS__))
-#define ENGINE_LOG_DEBUG_ERROR(...) ::Engine::Logger::Error("[{}:{}, {}] {}", __FILENAME__, __LINE__, __FUNCTION__, fmt::format(__VA_ARGS__))
+#define ENGINE_LOG_DEBUG(...) ::Engine::Logger::Debug("[{}:{}, {}] {}", __FILENAME__, __LINE__, __FUNCTION__, std::format(__VA_ARGS__))
+#define ENGINE_LOG_DEBUG_WARNING(...) ::Engine::Logger::Warn("[{}:{}, {}] {}", __FILENAME__, __LINE__, __FUNCTION__, std::format(__VA_ARGS__))
+#define ENGINE_LOG_DEBUG_ERROR(...) ::Engine::Logger::Error("[{}:{}, {}] {}", __FILENAME__, __LINE__, __FUNCTION__, std::format(__VA_ARGS__))
 

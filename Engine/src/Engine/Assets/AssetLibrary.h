@@ -12,13 +12,13 @@ namespace Engine
     public:
         void Register(const std::string& id, T item)
         {
-            ENGINE_ASSERT(!m_items.contains(id), fmt::format("Asset '{}' is already in library", id));
+            ENGINE_ASSERT(!m_items.contains(id), std::format("Asset '{}' is already in library", id));
             m_items[id] = item;
         }
 
         T Get(const std::string& id) const
         {
-            ENGINE_ASSERT(m_items.contains(id), fmt::format("Asset '{}' is not in library", id));
+            ENGINE_ASSERT(m_items.contains(id), std::format("Asset '{}' is not in library", id));
             return m_items.at(id);
         }
 

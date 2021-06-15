@@ -170,7 +170,7 @@ namespace Editor
         ImGui::PushID(imGuiWidgetId);
 
         //ImGui::SetNextItemOpen(true);
-        if (ImGui::TreeNode(fmt::format("Camera ({})", transform->GetName()).c_str()))
+        if (ImGui::TreeNode(std::format("Camera ({})", transform->GetName()).c_str()))
         {
             int cameraType = static_cast<int>(camera->GetType());
             if (ImGui::RadioButton("Orthographic", &cameraType, static_cast<int>(Engine::CameraType::Orthographic)))
@@ -307,7 +307,7 @@ namespace Editor
         auto gameObject = transform->GetGameObject();
 
         //ImGui::SetNextItemOpen(true);
-        if (ImGui::TreeNode(fmt::format("GameObject ({})", transform->GetName()).c_str()))
+        if (ImGui::TreeNode(std::format("GameObject ({})", transform->GetName()).c_str()))
         {
             bool active = gameObject->IsActive();
             if (ImGui::Checkbox("Active", &active))
@@ -340,7 +340,7 @@ namespace Editor
                 }
 
                 auto material = gameObject->GetMaterialIds()[i];
-                ImGui::Text(fmt::format("Index {} ({})", i, material).c_str());
+                ImGui::Text(std::format("Index {} ({})", i, material).c_str());
 
                 if (isMaterialUnused)
                 {
@@ -453,7 +453,7 @@ namespace Editor
         }
 
         {
-            ImGui::Text(fmt::format("Quaternion: w: {:.1}, x: {:.1}, y: {:.1}, z: {:.1}",
+            ImGui::Text(std::format("Quaternion: w: {:.1}, x: {:.1}, y: {:.1}, z: {:.1}",
                 DirectX::XMVectorGetW(orientation),
                 DirectX::XMVectorGetX(orientation),
                 DirectX::XMVectorGetY(orientation),
@@ -580,7 +580,7 @@ namespace Editor
     {
         ImGui::PushID(imGuiWidgetId);
 
-        if (ImGui::TreeNode(fmt::format("Part ({})", part.name).c_str()))
+        if (ImGui::TreeNode(std::format("Part ({})", part.name).c_str()))
         {
             bool active = part.active;
             if (ImGui::Checkbox("Active", &active)) 
@@ -596,7 +596,7 @@ namespace Editor
                 ImGui::PushStyleColor(ImGuiCol_Text, { 0.8f, 0.2f, 0.8f, 1 });
             }
             
-            ImGui::Text(fmt::format("Material: Index {} ({})", part.materialIndex, part.materialImportName).c_str());
+            ImGui::Text(std::format("Material: Index {} ({})", part.materialIndex, part.materialImportName).c_str());
             
             if (isMaterialMissing)
             {
@@ -614,8 +614,8 @@ namespace Editor
         auto& info = mesh->GetInfo();
         ImGui::Text("Mesh");
         ImGui::Indent();
-        ImGui::Text(fmt::format("Name: {}", info.name).c_str());
-        ImGui::Text(fmt::format("Triangle count: {}", info.triangleCount).c_str());
+        ImGui::Text(std::format("Name: {}", info.name).c_str());
+        ImGui::Text(std::format("Triangle count: {}", info.triangleCount).c_str());
         ImGui::Unindent();
     }
 

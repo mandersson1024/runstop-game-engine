@@ -22,7 +22,7 @@ namespace Engine
             // Load .environment.json file
             //
 
-            TimeLog timer(fmt::format("Loading '{}'", jsonFilepath_.generic_string()));
+            TimeLog timer(std::format("Loading '{}'", jsonFilepath_.generic_string()));
 
             const auto path = (GetAssetsFolderPath() / jsonFilepath_).generic_string();
             const nlohmann::ordered_json json = Json::Load(path);
@@ -42,7 +42,7 @@ namespace Engine
             // Load and process skybox
             //
 
-            TimeLog timer(fmt::format("Loading '{}'", skyboxFilepath_.generic_string()));
+            TimeLog timer(std::format("Loading '{}'", skyboxFilepath_.generic_string()));
                 
             const auto raw = RawTexture(GetAssetsFolderPath() / skyboxFilepath_);
             const auto source = Texture2D::CreateFromRawTexture(raw, false);
@@ -55,7 +55,7 @@ namespace Engine
             // Load and process irradiance map
             //
 
-            TimeLog timer(fmt::format("Loading '{}'", irradianceMapFilepath_.generic_string()));
+            TimeLog timer(std::format("Loading '{}'", irradianceMapFilepath_.generic_string()));
                 
             const auto raw = RawTexture(GetAssetsFolderPath() / irradianceMapFilepath_);
             const auto source = Texture2D::CreateFromRawTexture(raw, false);
@@ -68,7 +68,7 @@ namespace Engine
             // Load radiance map
             //
 
-            TimeLog timer(fmt::format("Loading '{}'", radianceMapFilepath_.generic_string()));
+            TimeLog timer(std::format("Loading '{}'", radianceMapFilepath_.generic_string()));
                 
             radianceMap_ = std::make_shared<TextureCube>(GetAssetsFolderPath() / radianceMapFilepath_);
         }

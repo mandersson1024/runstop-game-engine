@@ -14,10 +14,10 @@ namespace Engine
 
     std::shared_ptr<Model> ModelImporter::Import(const std::filesystem::path& assetFilepath)
     {
-        TimeLog timer(fmt::format("Importing {}", assetFilepath.generic_string()));
+        TimeLog timer(std::format("Importing {}", assetFilepath.generic_string()));
 
         auto filepath = GetAssetsFolderPath() / assetFilepath;
-        ENGINE_ASSERT(std::filesystem::exists(filepath), fmt::format("File '{}' not found", filepath.generic_string()));
+        ENGINE_ASSERT(std::filesystem::exists(filepath), std::format("File '{}' not found", filepath.generic_string()));
 
         Assimp::Importer importer;
 
@@ -35,7 +35,7 @@ namespace Engine
             aiProcess_GenUVCoords |
             aiProcess_RemoveRedundantMaterials);
 
-        ENGINE_ASSERT(scene != nullptr, fmt::format("Error importing {}", assetFilepath.generic_string()));
+        ENGINE_ASSERT(scene != nullptr, std::format("Error importing {}", assetFilepath.generic_string()));
 
         ENGINE_LOG_INFO("The model '{}' has {} meshes, {} materials", assetFilepath.generic_string(), scene->mNumMeshes, scene->mNumMaterials);
 

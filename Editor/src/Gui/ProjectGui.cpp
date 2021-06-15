@@ -43,7 +43,7 @@ namespace Editor
             ImGui::Text("Anti Aliasing");
             ImGui::Indent();
 
-            ImGui::Text(fmt::format("Sample Count: {}", settings.antiAliasingSampleCount).c_str());
+            ImGui::Text(std::format("Sample Count: {}", settings.antiAliasingSampleCount).c_str());
             ImGui::SameLine();
 
             if (ImGui::Button("...###anti_aliasing_sample_count"))
@@ -57,7 +57,7 @@ namespace Editor
 
                 for (const auto& cap : Engine::Graphics::GetAntiAliasingCapabilities())
                 {
-                    if (ImGui::Selectable(fmt::format("{}", cap.sampleCount).c_str()))
+                    if (ImGui::Selectable(std::format("{}", cap.sampleCount).c_str()))
                     {
                         settings.antiAliasingSampleCount = cap.sampleCount;
                         Engine::Graphics::ChangeSettings(settings);
@@ -68,7 +68,7 @@ namespace Editor
             }
 
             {
-                ImGui::Text(fmt::format("Quality: {}", settings.antiAliasingQuality).c_str());
+                ImGui::Text(std::format("Quality: {}", settings.antiAliasingQuality).c_str());
                 ImGui::SameLine();
 
                 if (ImGui::Button("...###antialiasing_quality"))
@@ -94,7 +94,7 @@ namespace Editor
 
                     for (uint32_t i = 0; i < qualityLevels; ++i)
                     {
-                        if (ImGui::Selectable(fmt::format("{}", i).c_str()))
+                        if (ImGui::Selectable(std::format("{}", i).c_str()))
                         {
                             settings.antiAliasingQuality = i;
                             Engine::Graphics::ChangeSettings(settings);
@@ -163,18 +163,18 @@ namespace Editor
 
             ImGui::Separator();
 
-            ImGui::Text(fmt::format("Shader: {}", material->shaderId).c_str());
+            ImGui::Text(std::format("Shader: {}", material->shaderId).c_str());
 
-            ImGui::Text(fmt::format("Blend State: {}", material->blendStateId).c_str());
-            ImGui::Text(fmt::format("Rasterizer State: {}", material->rasterizerStateId).c_str());
-            ImGui::Text(fmt::format("Sampler State: {}", material->samplerStateId).c_str());
+            ImGui::Text(std::format("Blend State: {}", material->blendStateId).c_str());
+            ImGui::Text(std::format("Rasterizer State: {}", material->rasterizerStateId).c_str());
+            ImGui::Text(std::format("Sampler State: {}", material->samplerStateId).c_str());
 
             {
                 ImGui::PushID("Basecolor");
                 ImGui::Text("Basecolor");
                 ImGui::Indent();
 
-                ImGui::Text(fmt::format("Map: {}", material->basecolorMapId).c_str());
+                ImGui::Text(std::format("Map: {}", material->basecolorMapId).c_str());
 
                 ImGui::Text("Tint:");
                 ImGui::SameLine();
@@ -204,7 +204,7 @@ namespace Editor
                 ImGui::SameLine();
                 ImGui::DragFloatRange2("", &material->roughnessRange.x, &material->roughnessRange.y, 0.001f, 0, 1, "%.3f");
 
-                ImGui::Text(fmt::format("Map: {}", material->roughnessMapId).c_str());
+                ImGui::Text(std::format("Map: {}", material->roughnessMapId).c_str());
 
                 ImGui::Unindent();
                 ImGui::PopID();
@@ -219,7 +219,7 @@ namespace Editor
                 ImGui::SameLine();
                 ImGui::DragFloatRange2("", &material->metallicRange.x, &material->metallicRange.y, 0.001f, 0, 1, "%.3f");
 
-                ImGui::Text(fmt::format("Map: {}", material->metallicMapId).c_str());
+                ImGui::Text(std::format("Map: {}", material->metallicMapId).c_str());
 
                 ImGui::Unindent();
                 ImGui::PopID();
@@ -234,7 +234,7 @@ namespace Editor
                 ImGui::SameLine();
                 ImGui::DragFloatRange2("", &material->ambientOcclusionRange.x, &material->ambientOcclusionRange.y, 0.001f, 0, 1, "%.3f");
 
-                ImGui::Text(fmt::format("Map: {}", material->ambientOcclusionMapId).c_str());
+                ImGui::Text(std::format("Map: {}", material->ambientOcclusionMapId).c_str());
 
                 ImGui::Unindent();
                 ImGui::PopID();

@@ -27,7 +27,7 @@ namespace Engine
             rowPitch_ = width_ * numColorChannels;
         }
 
-        ENGINE_ASSERT(data_, fmt::format("Failed to load image {} ({})", filepath.generic_string().c_str(), stbi_failure_reason()));
+        ENGINE_ASSERT(data_, std::format("Failed to load image {} ({})", filepath.generic_string().c_str(), stbi_failure_reason()));
     }
 
     RawTexture::~RawTexture()

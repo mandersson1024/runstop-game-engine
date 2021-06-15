@@ -33,7 +33,7 @@ namespace Engine
 
     void Texture2DAsset::LoadSync()
     {
-        TimeLog timer(fmt::format("Loading '{}'", jsonFilepath_.generic_string()));
+        TimeLog timer(std::format("Loading '{}'", jsonFilepath_.generic_string()));
 
         nlohmann::ordered_json json = Json::Load(GetAssetsFolderPath() / jsonFilepath_);
         jsonTimestamp_->Stamp();
