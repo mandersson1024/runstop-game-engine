@@ -22,17 +22,17 @@ namespace Engine
 
     float TimeLog::GetMicroseconds() const
     {
-        return GetNanoseconds() * 1e-3;
+        return GetNanoseconds() * 1e-3f;
     }
 
     float TimeLog::GetMilliseconds() const
     {
-        return GetNanoseconds() * 1e-6;
+        return GetNanoseconds() * 1e-6f;
     }
 
     float TimeLog::GetSeconds() const
     {
-        return GetNanoseconds() * 1e-9;
+        return GetNanoseconds() * 1e-9f;
     }
 
 }
