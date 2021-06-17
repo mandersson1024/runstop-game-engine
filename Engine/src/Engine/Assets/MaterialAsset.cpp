@@ -16,7 +16,7 @@ namespace Engine
     {
         TimeLog timer(std::format("Loading '{}'", filepath_.generic_string()));
 
-        auto json = Json::Load(GetAssetsFolderPath() / filepath_);
+        const auto json = Json::Load(GetAssetsFolderPath() / filepath_);
         timestamp_->Stamp();
 
         material_ = std::make_shared<Material>();

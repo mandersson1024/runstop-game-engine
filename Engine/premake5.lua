@@ -41,7 +41,7 @@ project "Engine"
 	{
 	}
 
-	defines { "WIN32", "SPDLOG_NO_EXCEPTIONS" }
+	defines { "WIN32", "SPDLOG_NO_EXCEPTIONS", "JSON_NOEXCEPTION" }
 
 	filter "files:src/**.ixx"
 		flags { "NoPCH" }

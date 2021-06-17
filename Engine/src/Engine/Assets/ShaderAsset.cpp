@@ -16,7 +16,7 @@ namespace Engine
     {
         TimeLog timer(std::format("Loading '{}'", jsonFilepath_.generic_string()));
 
-        nlohmann::ordered_json json = Json::Load(GetAssetsFolderPath() / jsonFilepath_);
+        const auto json = Json::Load(GetAssetsFolderPath() / jsonFilepath_);
         jsonTimestamp_->Stamp();
 
         vertexShaderFilepath_ = json["vertex_source"].get<std::string>();

@@ -37,7 +37,7 @@ project "Editor"
 		"xcopy \"%{wks.location}/Engine/assets\" \"%{cfg.targetdir}/assets\" /siy",
 	}
 
-	defines { "WIN32", "SPDLOG_NO_EXCEPTIONS" }
+	defines { "WIN32", "SPDLOG_NO_EXCEPTIONS", "JSON_NOEXCEPTION" }
 
 	filter "system:windows"
 		systemversion "latest"

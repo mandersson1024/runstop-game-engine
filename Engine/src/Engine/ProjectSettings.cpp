@@ -27,7 +27,7 @@ namespace Engine
 
     bool ProjectSettings::GetBool(const std::string& name, bool defaultValue)
     {
-        if (json_[name] == nullptr)
+        if (json_[name].is_null())
         {
             SetBool(name, defaultValue);
         }
@@ -43,7 +43,7 @@ namespace Engine
 
     std::string ProjectSettings::GetString(const std::string& name, std::string defaultValue)
     {
-        if (json_[name] == nullptr)
+        if (json_[name].is_null())
         {
             SetString(name, defaultValue);
         }
@@ -59,7 +59,7 @@ namespace Engine
 
     float ProjectSettings::GetFloat(const std::string& name, float defaultValue)
     {
-        if (json_[name] == nullptr)
+        if (json_[name].is_null())
         {
             SetFloat(name, defaultValue);
         }
@@ -75,7 +75,7 @@ namespace Engine
 
     int ProjectSettings::GetInt(const std::string& name, int defaultValue)
     {
-        if (json_[name] == nullptr)
+        if (json_[name].is_null())
         {
             SetInt(name, defaultValue);
         }

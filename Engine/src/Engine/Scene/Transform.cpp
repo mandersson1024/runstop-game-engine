@@ -15,8 +15,7 @@ namespace Engine
 
         for (auto transform : m_children)
         {
-            auto camera = transform->FindCamera(name);
-            if (camera != nullptr)
+            if (const auto camera = transform->FindCamera(name))
             {
                 return camera;
             }

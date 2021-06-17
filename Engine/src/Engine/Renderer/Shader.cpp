@@ -20,9 +20,8 @@ namespace Engine
         ENGINE_LOG_INFO("Compiling vertex shader: '{}'", vertexShaderFilePath_.generic_string());
 
         vertexShader_ = nullptr;
-        auto blob = ShaderCompiler::CompileVertexShader(vertexShaderFilePath_);
 
-        if (blob)
+        if (const auto blob = ShaderCompiler::CompileVertexShader(vertexShaderFilePath_))
         {
             Graphics::GetDevice()->CreateVertexShader(
                 blob->GetBufferPointer(),
@@ -46,9 +45,8 @@ namespace Engine
         ENGINE_LOG_INFO("Compiling pixel shader: '{}'", pixelShaderFilePath_.generic_string());
 
         pixelShader_ = nullptr;
-        auto blob = ShaderCompiler::CompilePixelShader(pixelShaderFilePath_);
 
-        if (blob)
+        if (const auto blob = ShaderCompiler::CompilePixelShader(pixelShaderFilePath_))
         {
             Graphics::GetDevice()->CreatePixelShader(
                 blob->GetBufferPointer(),
@@ -63,8 +61,8 @@ namespace Engine
         WITH_GUARDED_GRAPHICS_CONTEXT
         (
             Graphics::GetContext()->VSSetShader(vertexShader_.Get(), nullptr, 0);
-        Graphics::GetContext()->PSSetShader(pixelShader_.Get(), nullptr, 0);
-        Graphics::GetContext()->IASetInputLayout(inputLayout_.Get());
+            Graphics::GetContext()->PSSetShader(pixelShader_.Get(), nullptr, 0);
+            Graphics::GetContext()->IASetInputLayout(inputLayout_.Get());
         );
     }
 
@@ -83,9 +81,8 @@ namespace Engine
     {
         shader_ = nullptr;
         ENGINE_LOG_INFO("Compiling compute shader: '{}'", filepath_.generic_string());
-        Microsoft::WRL::ComPtr<ID3DBlob> blob = ShaderCompiler::CompileComputeShader(filepath_);
 
-        if (blob)
+        if (const auto blob = ShaderCompiler::CompileComputeShader(filepath_))
         {
             Graphics::GetDevice()->CreateComputeShader(
                 blob->GetBufferPointer(),

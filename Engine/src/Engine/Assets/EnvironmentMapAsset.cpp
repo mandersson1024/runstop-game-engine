@@ -25,7 +25,7 @@ namespace Engine
             TimeLog timer(std::format("Loading '{}'", jsonFilepath_.generic_string()));
 
             const auto path = (GetAssetsFolderPath() / jsonFilepath_).generic_string();
-            const nlohmann::ordered_json json = Json::Load(path);
+            const auto json = Json::Load(path);
             jsonTimestamp_->Stamp();
 
             skyboxFilepath_ = json["skybox"].get<std::string>();

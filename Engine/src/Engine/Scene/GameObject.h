@@ -18,30 +18,30 @@ namespace Engine
     class GameObject
     {
     public:
-        std::shared_ptr<Transform> GetTransform() const { return m_transform; }
+        std::shared_ptr<Transform> GetTransform() const { return transform_; }
         //const std::string& GetName() const { return m_name; }
-        std::string GetModelId() const { return m_modelId; }
+        std::string GetModelId() const { return modelId_; }
         const std::vector<std::string>& GetMaterialIds() const { return materialIds_; }
         std::vector<std::shared_ptr<GameObject>> GetChildren() const;
 
-        bool IsActive() const { return m_active; }
-        bool HasModel() const { return !m_modelId.empty(); }
+        bool IsActive() const { return active_; }
+        bool HasModel() const { return !modelId_.empty(); }
 
-        void SetTransform(std::shared_ptr<Transform> transform) { m_transform = transform; }
+        void SetTransform(std::shared_ptr<Transform> transform) { transform_ = transform; }
         //void SetName(const std::string& name) { m_name = name; }
-        void SetModelId(const std::string& modelId) { m_modelId = modelId; }
+        void SetModelId(const std::string& modelId) { modelId_ = modelId; }
         void AddMaterialId(const std::string& id) { materialIds_.push_back(id); }
-        void SetActive(bool active) { m_active = active; }
+        void SetActive(bool active) { active_ = active; }
 
-        bool HasController() const { return m_controller != nullptr; }
-        void SetController(std::shared_ptr<GameObjectController> controller) { m_controller = controller; }
-        std::shared_ptr<GameObjectController> GetController() const { return m_controller; }
+        bool HasController() const { return controller_ != nullptr; }
+        void SetController(std::shared_ptr<GameObjectController> controller) { controller_ = controller; }
+        std::shared_ptr<GameObjectController> GetController() const { return controller_; }
 
-        void SetDebugInvertColors(bool invert) { m_debugInvertColors = invert; }
-        bool GetDebugInvertColors() const { return m_debugInvertColors; }
+        void SetDebugInvertColors(bool invert) { debugInvertColors_ = invert; }
+        bool GetDebugInvertColors() const { return debugInvertColors_; }
         void SetDebugInvertColorsRecursively(bool invert)
         { 
-            m_debugInvertColors = invert; 
+            debugInvertColors_ = invert; 
 
             for (auto child : GetChildren())
             {
@@ -54,12 +54,12 @@ namespace Engine
         void OnUpdate(float deltaTime);
 
     private:
-        std::shared_ptr<Transform> m_transform;
-        std::string m_modelId;
+        std::shared_ptr<Transform> transform_;
+        std::string modelId_;
         std::vector<std::string> materialIds_;
-        std::shared_ptr<GameObjectController> m_controller;
-        bool m_active = true;
-        bool m_debugInvertColors = false;
+        std::shared_ptr<GameObjectController> controller_;
+        bool active_ = true;
+        bool debugInvertColors_ = false;
     };
 
 }

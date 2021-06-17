@@ -78,7 +78,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;SPDLOG_NO_EXCEPTIONS;_DEBUG;_WINDOWS;ENGINE_DEBUG;EDITOR;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;SPDLOG_NO_EXCEPTIONS;JSON_NOEXCEPTION;_DEBUG;_WINDOWS;ENGINE_DEBUG;EDITOR;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;third_party;..\Engine\src;..\Engine\third_party;..\Engine\assets\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -104,7 +104,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;SPDLOG_NO_EXCEPTIONS;_DEBUG;_WINDOWS;ENGINE_DEBUG;ENGINE_SINGLE_THREAD;EDITOR;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;SPDLOG_NO_EXCEPTIONS;JSON_NOEXCEPTION;_DEBUG;_WINDOWS;ENGINE_DEBUG;ENGINE_SINGLE_THREAD;EDITOR;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;third_party;..\Engine\src;..\Engine\third_party;..\Engine\assets\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -130,7 +130,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;SPDLOG_NO_EXCEPTIONS;NDEBUG;_WINDOWS;ENGINE_RELEASE;EDITOR;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;SPDLOG_NO_EXCEPTIONS;JSON_NOEXCEPTION;NDEBUG;_WINDOWS;ENGINE_RELEASE;EDITOR;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;third_party;..\Engine\src;..\Engine\third_party;..\Engine\assets\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>

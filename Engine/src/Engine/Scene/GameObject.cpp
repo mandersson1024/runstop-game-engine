@@ -26,7 +26,7 @@ namespace Engine
 
         std::vector<std::shared_ptr<GameObject>> children;
 
-        for (auto& transform : m_transform->GetChildren())
+        for (auto& transform : transform_->GetChildren())
         {
             children.push_back(transform->GetGameObject());
         }
@@ -36,17 +36,17 @@ namespace Engine
 
     void GameObject::OnUpdateControllers(float deltaTime)
     {
-        if (!m_active)
+        if (!active_)
         {
             return;
         }
 
-        if (m_controller)
+        if (controller_)
         {
-            m_controller->OnUpdate(deltaTime);
+            controller_->OnUpdate(deltaTime);
         }
 
-        for (auto& child : m_transform->GetChildren())
+        for (auto& child : transform_->GetChildren())
         {
             child->GetGameObject()->OnUpdateControllers(deltaTime);
         }
@@ -54,16 +54,16 @@ namespace Engine
 
     void GameObject::OnUpdate(float deltaTime)
     {
-        if (!m_active)
+        if (!active_)
         {
             return;
         }
 
-        auto modelMatrix = m_transform->GetWorldModelMatrix();
+        auto modelMatrix = transform_->GetWorldModelMatrix();
 
         if (HasModel())
         {
-            std::shared_ptr<Model> model = Assets::GetModel(m_modelId);
+            std::shared_ptr<Model> model = Assets::GetModel(modelId_);
 
             for (auto& part : model->parts)
             {
@@ -72,7 +72,7 @@ namespace Engine
                     if (part.materialIndex < materialIds_.size())
                     {
                         const auto materialId = materialIds_[part.materialIndex];
-                        Application::GetRenderer().SubmitMesh(part.mesh, materialId, modelMatrix, true, m_debugInvertColors);
+                        Application::GetRenderer().SubmitMesh(part.mesh, materialId, modelMatrix, true, debugInvertColors_);
                     }
                     else
                     {
@@ -82,7 +82,7 @@ namespace Engine
             }
         }
 
-        for (auto& child : m_transform->GetChildren())
+        for (auto& child : transform_->GetChildren())
         {
             child->GetGameObject()->OnUpdate(deltaTime);
         }

@@ -23,10 +23,9 @@ namespace Engine
 
         const auto& path = GetAssetsFolderPath() / filepath_;
         ENGINE_ASSERT(std::filesystem::exists(path), std::format("File '{}' not found", path.generic_string()));
-        nlohmann::ordered_json json = Json::Load(path);
+        const auto& json = Json::Load(path);
         scene_ = Deserialize(json);
     }
-
 
     bool SceneAsset::IsDirty()
     {
@@ -47,15 +46,14 @@ namespace Engine
         std::shared_ptr<Scene> scene = std::make_shared<Scene>();
 
         {
-            if (!json["environment_map"].is_null())
+            if (json.contains("environment_map"))
             { 
-                std::string id = json["environment_map"];
-                scene->SetEnvironmentMapId(id);
+                scene->SetEnvironmentMapId(json["environment_map"]);
             }
 
             std::shared_ptr<Transform> transform;
 
-            if (json["directional_light"] != nullptr)
+            if (json.contains("directional_light"))
             {
                 transform = DeserializeTransform(json["directional_light"]);
             }
@@ -83,7 +81,6 @@ namespace Engine
         }
 
         nlohmann::ordered_json transforms = json["transforms"];
-
         for (auto& transformJson : transforms)
         {
             std::shared_ptr<Transform> transform = DeserializeTransform(transformJson);
@@ -97,7 +94,7 @@ namespace Engine
     {
         auto transform = std::make_shared<Transform>();
 
-        if (json["name"] != nullptr)
+        if (json.contains("name"))
         {
             transform->SetName(json["name"]);
         }
@@ -106,7 +103,7 @@ namespace Engine
             transform->SetName("");
         }
 
-        if (json["position"] != nullptr)
+        if (json.contains("position"))
         {
             transform->SetPosition(
                 json["position"][0],
@@ -115,7 +112,7 @@ namespace Engine
             );
         }
 
-        if (json["scale"] != nullptr)
+        if (json.contains("scale"))
         {
             transform->SetScale(
                 json["scale"][0],
@@ -124,7 +121,7 @@ namespace Engine
             );
         }
 
-        if (json["orientation"] != nullptr)
+        if (json.contains("orientation"))
         {
             EulerAngles eulerAngles
             {
@@ -137,7 +134,7 @@ namespace Engine
         }
 
         {
-            if (json["collider"] != nullptr)
+            if (json.contains("collider"))
             {
                 std::shared_ptr<BoxCollider> collider = std::make_shared<BoxCollider>();
 
@@ -156,19 +153,19 @@ namespace Engine
             }
         }
 
-        nlohmann::ordered_json gameObjectJson = json["game_object"];
-        if (gameObjectJson != nullptr)
+        if (json.contains("game_object"))
         {
+            const auto& gameObjectJson = json["game_object"];
             std::shared_ptr<GameObject> go = std::make_shared<GameObject>();
             transform->SetGameObject(go);
             go->SetTransform(transform);
 
-            if (!gameObjectJson["model"].is_null())
+            if (gameObjectJson.contains("model"))
             {
                 go->SetModelId(gameObjectJson["model"].get<std::string>());
             }
 
-            if (!gameObjectJson["materials"].is_null())
+            if (gameObjectJson.contains("materials"))
             {
                 nlohmann::ordered_json materials = gameObjectJson["materials"];
 
@@ -182,46 +179,46 @@ namespace Engine
                 go->AddMaterialId("pbr");
             }
 
-            if (!gameObjectJson["controller"].is_null())
+            if (gameObjectJson.contains("controller"))
             {
-                auto controller = GameObjectController::GetLibrary().Get(gameObjectJson["controller"].get<std::string>())();
+                auto controller = GameObjectController::GetLibrary().Get(gameObjectJson["controller"])();
                 controller->SetGameObject(go);
                 go->SetController(controller);
             }
         }
 
-        nlohmann::ordered_json& cameraJson = json["camera"];
-        if (cameraJson != nullptr)
+        if (json.contains("camera"))
         {
+            const auto& cameraJson = json["camera"];
             std::shared_ptr<Camera> camera = std::make_shared<Camera>();
 
-            if (cameraJson["type"] != nullptr)
+            if (cameraJson.contains("type"))
             {
-                auto type = cameraJson["type"] == "perspective" ? CameraType::Perspective : CameraType::Orthographic;
+                const auto type = cameraJson["type"] == "perspective" ? CameraType::Perspective : CameraType::Orthographic;
                 camera->SetType(type);
             }
 
-            if (cameraJson["fov"] != nullptr)
+            if (cameraJson.contains("fov"))
             {
                 camera->SetFieldOfView(DegreesToRadians(cameraJson["fov"]));
             }
 
-            if (cameraJson["near_clipping_plane"] != nullptr)
+            if (cameraJson.contains("near_clipping_plane"))
             {
                 camera->SetNearClippingPlane(cameraJson["near_clipping_plane"]);
             }
 
-            if (cameraJson["far_clipping_plane"] != nullptr)
+            if (cameraJson.contains("far_clipping_plane"))
             {
                 camera->SetFarClippingPlane(cameraJson["far_clipping_plane"]);
             }
 
-            if (cameraJson["ortho_view_width"] != nullptr)
+            if (cameraJson.contains("ortho_view_width"))
             {
                 camera->SetOrthoViewWidth(cameraJson["ortho_view_width"]);
             }
 
-            if (cameraJson["ortho_view_height"] != nullptr)
+            if (cameraJson.contains("ortho_view_height"))
             {
                 camera->SetOrthoViewHeight(cameraJson["ortho_view_height"]);
             }
@@ -230,17 +227,16 @@ namespace Engine
             transform->SetCamera(camera);
         }
 
-        const auto& lightJson = json["light_source"];
-        if (lightJson != nullptr)
+        if (json.contains("light_source"))
         {
             std::shared_ptr<LightSource> light = std::make_shared<LightSource>();
 
-            if (lightJson["color"] != nullptr)
+            if (json["light_source"].contains("color"))
             {
                 light->SetColor(
-                    lightJson["color"][0],
-                    lightJson["color"][1],
-                    lightJson["color"][2]
+                    json["light_source"]["color"][0],
+                    json["light_source"]["color"][1],
+                    json["light_source"]["color"][2]
                 );
             }
 
@@ -248,10 +244,9 @@ namespace Engine
             light->SetTransform(transform);
         }
 
-        nlohmann::ordered_json childrenJson = json["children"];
-        if (childrenJson != nullptr)
+        if (json.contains("children"))
         {
-            for (auto& childJson : childrenJson)
+            for (const auto& childJson : json["children"])
             {
                 auto child = DeserializeTransform(childJson);
                 Transform::AttachChildToParent(transform, child, false);
@@ -277,7 +272,7 @@ namespace Engine
     {
         std::vector<nlohmann::ordered_json> jsons;
 
-        for (auto transform : transforms)
+        for (auto& transform : transforms)
         {
             jsons.push_back(SerializeTransform(transform));
         }
